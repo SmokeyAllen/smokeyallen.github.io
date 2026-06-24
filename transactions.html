@@ -187,7 +187,7 @@
     <nav>
       <a href="/" class="nav-logo">SmokeyAllen</a>
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="transactions.html">Gambling Tracker</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -216,7 +216,7 @@
     <div class="container">
       <span class="eyebrow">Daniels gambling tracker</span>
       <h1>Gamble <em>monitor</em></h1>
-      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally updated.</p>
+      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally.</p>
       <div>
         <span class="addr-pill">MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg</span>
       </div>
@@ -225,6 +225,7 @@
           <span class="refresh-dot"></span>
           <span id="lastSyncLabel">Updated recently</span>
         </span>
+        <p>Please note that this page is work in progress. Figures may not be accurate</p>
       </div>
     </div>
   </div>
@@ -248,11 +249,11 @@
           <div class="stat-value" id="statMax">—</div>
         </div>
         <div class="stat-box">
-          <span class="eyebrow">LTC price (NZD)</span>
+          <span class="eyebrow">Last 7 days (NZD)</span>
           <div class="stat-value" id="statPrice">—</div>
         </div>
         <div class="stat-box">
-          <span class="eyebrow">Total value (NZD)</span>
+          <span class="eyebrow">Total value at time (NZD)</span>
           <div class="stat-value" id="statValueNZD">—</div>
         </div>
         <div class="stat-box">
@@ -330,8 +331,13 @@
       el('statTotal').textContent    = total.toFixed(4) + ' LTC';
       el('statCount').textContent    = deposits.length;
       el('statMax').textContent      = max.toFixed(4) + ' LTC';
-      el('statPrice').textContent    = price ? '$' + price.toFixed(2) : '—';
-      el('statValueNZD').textContent = price ? '$' + (total * price).toFixed(2) : '—';
+      const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+      const last7 = deposits.filter(d => new Date(d.confirmed).getTime() >= sevenDaysAgo);
+      const last7NZD = last7.reduce((s, d) => s + (d.valueNZD || 0), 0);
+      el('statPrice').textContent    = last7NZD > 0 ? '$' + last7NZD.toFixed(2) : '—';
+      const historicalTotal = deposits.reduce((s, d) => s + (d.valueNZD || 0), 0);
+      el('statValueNZD').textContent = historicalTotal > 0 ? '$' + historicalTotal.toFixed(2) : '—';
+
 
       // Best day calculation
       const byDay = {};
@@ -444,7 +450,7 @@
         const dt   = new Date(dep.confirmed);
         const date = dt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
         const time = dt.toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
-        const nzd  = price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '';
+        const nzd  = dep.valueNZD ? ` ≈ $${dep.valueNZD.toFixed(2)} NZD` : (price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '');
         const short = dep.hash.slice(0, 16) + '…' + dep.hash.slice(-8);
 
         const row = document.createElement('div');
