@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LTC Tracker — Smokey Allen</title>
+  <title>Gambling Tracker — Smokey Allen</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -214,16 +214,16 @@
   <!-- ===== PAGE HEADER ===== -->
   <div class="tracker-header">
     <div class="container">
-      <span class="eyebrow">Gambling tracker</span>
-      <h1>Deposit <em>monitor</em></h1>
-      <p>Tracking all incoming LTC deposits to Daniels Rollbit account. Data pulled live from the blockchain and refreshed every 60 seconds.</p>
+      <span class="eyebrow">Daniels gambling tracker</span>
+      <h1>Gamble <em>monitor</em></h1>
+      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and refreshed every hour.</p>
       <div>
         <span class="addr-pill">MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg</span>
       </div>
       <div>
         <span class="refresh-badge" id="refreshBadge" style="display:none;">
           <span class="refresh-dot"></span>
-          Auto-refreshing every 60s
+          Auto-update every hour
         </span>
       </div>
     </div>
@@ -250,6 +250,10 @@
         <div class="stat-box">
           <span class="eyebrow">LTC price (NZD)</span>
           <div class="stat-value" id="statPrice">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Total value (NZD)</span>
+          <div class="stat-value" id="statValueNZD">—</div>
         </div>
       </div>
 
@@ -278,7 +282,7 @@
         <span class="footer-logo">SA</span>
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
-          <li><a href="transactions.html">LTC Tracker</a></li>
+          <li><a href="transactions.html">Gambling Tracker</a></li>
         </ul>
       </div>
       <p class="footer-copy">© 2026 Smokey Allen. All rights reserved.</p>
@@ -362,6 +366,7 @@
       el('statCount').textContent = deposits.length;
       el('statMax').textContent   = max.toFixed(4) + ' LTC';
       el('statPrice').textContent = ltcPrice ? '$' + ltcPrice.toFixed(2) : '—';
+      el('statValueNZD').textContent = ltcPrice ? '$' + (total * ltcPrice).toFixed(2) : '—';
       el('statsRow').style.display = '';
     }
 
@@ -513,9 +518,9 @@
       }
     }
 
-    // ── Start on page load, then refresh every 60s ──
+    // ── Start on page load, then refresh every hour ──
     load();
-    setInterval(load, 60_000);
+    setInterval(load, 6000_000);
   </script>
 </body>
 </html>
