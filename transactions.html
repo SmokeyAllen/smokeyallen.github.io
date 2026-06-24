@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gambling Tracker — Smokey Allen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <style>
+    /* ── Page-specific styles ── */
+    .tracker-header {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tracker-header .eyebrow { display: block; margin-bottom: 1rem; }
+    .tracker-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.75rem; }
+    .tracker-header p  { max-width: 480px; }
+
+    .addr-pill {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 1rem;
+    }
+
+    body.dark .addr-pill { background: #1a1a18; }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      margin: 2.5rem 0;
+    }
+
+    .stat-box {
+      background: var(--color-bg);
+      padding: 1.5rem 1.75rem;
+    }
+
+    body.dark .stat-box { background: var(--color-bg); }
+
+    .stat-box .eyebrow { display: block; margin-bottom: 0.5rem; }
+
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    /* Chart area */
+    .chart-wrap {
+      position: relative;
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    body.dark .chart-wrap { background: #1a1a18; }
+    .chart-wrap canvas { max-height: 300px; }
+
+    /* Transaction list */
+    .tx-list { display: flex; flex-direction: column; }
+
+    .tx-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tx-item:first-child { border-top: 1px solid var(--color-border); }
+
+    .tx-hash {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 320px;
+      margin-bottom: 0.3rem;
+    }
+
+    .tx-hash a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .tx-hash a:hover { color: var(--color-text-primary); }
+
+    .tx-date {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .tx-amount {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .tx-amount .tx-nzd {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* State messages */
+    .state-msg {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--color-text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .state-msg.error { color: #c0392b; }
+
+    /* Sync badge */
+    .refresh-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+    }
+
+    .refresh-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #27ae60;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .tx-hash { max-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">SmokeyAllen</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="transactions.html">Gambling Tracker</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="tracker-header">
+    <div class="container">
+      <span class="eyebrow">Daniels gambling tracker</span>
+      <h1>Gamble <em>monitor</em></h1>
+      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally.</p>
+      <div>
+        <span class="addr-pill">MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg</span>
+      </div>
+      <div>
+        <span class="refresh-badge" id="refreshBadge" style="display:none;">
+          <span class="refresh-dot"></span>
+          <span id="lastSyncLabel">Updated recently</span>
+        </span>
+        <p>Please note that this page is work in progress. Figures may not be accurate</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="stats-row" id="statsRow" style="display:none;">
+        <div class="stat-box">
+          <span class="eyebrow">Total deposited</span>
+          <div class="stat-value" id="statTotal">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">No. of deposits</span>
+          <div class="stat-value" id="statCount">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Largest deposit</span>
+          <div class="stat-value" id="statMax">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">LTC price (NZD)</span>
+          <div class="stat-value" id="statPrice">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Total value (NZD)</span>
+          <div class="stat-value" id="statValueNZD">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Highest day (LTC)</span>
+          <div class="stat-value" id="statBestDay">—</div>
+          <div class="stat-sub" id="statBestDayDate"></div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-wrap" id="chartWrap" style="display:none;">
+        <div class="section-title">Deposits over time (LTC)</div>
+        <canvas id="txChart"></canvas>
+      </div>
+
+      <!-- Tx list -->
+      <div id="txListWrap" style="display:none;">
+        <div class="section-title">Transaction history</div>
+        <div class="tx-list" id="txList"></div>
+      </div>
+
+      <!-- State placeholder -->
+      <div class="state-msg" id="stateMsg">Loading database…</div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">SA</span>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="transactions.html">Gambling Tracker</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Smokey Allen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Dark mode ──
+    const toggle = document.getElementById('themeToggle');
+    const body   = document.body;
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark');
+    }
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+      if (chartInstance) updateChartTheme();
+    });
+
+    let chartInstance = null;
+    let _lastDeposits = [];
+
+    const el = id => document.getElementById(id);
+
+    const timeAgo = iso => {
+      const mins = Math.floor((Date.now() - new Date(iso)) / 60000);
+      if (mins < 1)    return 'just now';
+      if (mins < 60)   return mins + 'm ago';
+      if (mins < 1440) return Math.floor(mins / 60) + 'h ago';
+      return Math.floor(mins / 1440) + 'd ago';
+    };
+
+    // ── Render stats ──
+    function renderStats(deposits, price) {
+      const total = deposits.reduce((s, d) => s + d.amountLTC, 0);
+      const max   = deposits.length ? Math.max(...deposits.map(d => d.amountLTC)) : 0;
+
+      el('statTotal').textContent    = total.toFixed(4) + ' LTC';
+      el('statCount').textContent    = deposits.length;
+      el('statMax').textContent      = max.toFixed(4) + ' LTC';
+      el('statPrice').textContent    = price ? '$' + price.toFixed(2) : '—';
+      el('statValueNZD').textContent = price ? '$' + (total * price).toFixed(2) : '—';
+
+      // Best day calculation
+      const byDay = {};
+      deposits.forEach(d => {
+        const day = d.confirmed.slice(0, 10);
+        byDay[day] = (byDay[day] || 0) + d.amountLTC;
+      });
+      const bestDay = Object.entries(byDay).sort((a, b) => b[1] - a[1])[0];
+      if (bestDay) {
+        el('statBestDay').textContent = bestDay[1].toFixed(4) + ' LTC';
+        el('statBestDayDate').textContent = new Date(bestDay[0]).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
+      }
+
+      el('statsRow').style.display   = '';
+    }
+
+    // ── Render chart ──
+    function renderChart(deposits) {
+      const isDark    = body.classList.contains('dark');
+      const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+      const textColor = isDark ? '#8a8780' : '#6b6762';
+
+      const sorted  = [...deposits].sort((a, b) => new Date(a.confirmed) - new Date(b.confirmed));
+      const labels  = sorted.map(d => new Date(d.confirmed).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short' }));
+      const amounts = sorted.map(d => d.amountLTC);
+
+      let cum = 0;
+      const cumulative = amounts.map(a => { cum += a; return +cum.toFixed(6); });
+
+      el('chartWrap').style.display = '';
+      if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+
+      chartInstance = new Chart(el('txChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Deposit (LTC)',
+              data: amounts,
+              backgroundColor: isDark ? 'rgba(200,133,74,0.55)' : 'rgba(26,26,26,0.55)',
+              borderColor:     isDark ? 'rgba(200,133,74,0.9)'  : 'rgba(26,26,26,0.9)',
+              borderWidth: 1,
+              borderRadius: 3,
+              yAxisID: 'y',
+            },
+            {
+              label: 'Cumulative (LTC)',
+              data: cumulative,
+              type: 'line',
+              borderColor:     isDark ? '#c8854a' : '#1a1a1a',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              pointRadius: 3,
+              tension: 0.3,
+              yAxisID: 'y2',
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: textColor, font: { family: 'DM Sans', size: 12 } } },
+            tooltip: {
+              callbacks: {
+                label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(4)} LTC`
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { color: gridColor }
+            },
+            y: {
+              position: 'left',
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { color: gridColor }
+            },
+            y2: {
+              position: 'right',
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { drawOnChartArea: false }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartTheme() {
+      if (!chartInstance) return;
+      chartInstance.destroy();
+      chartInstance = null;
+      renderChart(_lastDeposits);
+    }
+
+    // ── Render transaction list ──
+    function renderList(deposits, price) {
+      const list = el('txList');
+      list.innerHTML = '';
+
+      if (!deposits.length) {
+        list.innerHTML = '<div class="state-msg">No incoming transactions found for this address.</div>';
+        el('txListWrap').style.display = '';
+        return;
+      }
+
+      [...deposits].sort((a, b) => new Date(b.confirmed) - new Date(a.confirmed)).forEach(dep => {
+        const dt   = new Date(dep.confirmed);
+        const date = dt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
+        const time = dt.toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
+        const nzd  = price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '';
+        const short = dep.hash.slice(0, 16) + '…' + dep.hash.slice(-8);
+
+        const row = document.createElement('div');
+        row.className = 'tx-item';
+        row.innerHTML = `
+          <div>
+            <div class="tx-hash">
+              <a href="https://litecoinspace.org/tx/${dep.hash}" target="_blank" rel="noopener">
+                ${short}
+              </a>
+            </div>
+            <div class="tx-date">${date} · ${time}</div>
+          </div>
+          <div class="tx-amount">
+            ${dep.amountLTC.toFixed(4)} LTC
+            ${nzd ? `<span class="tx-nzd">${nzd}</span>` : ''}
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      el('txListWrap').style.display = '';
+    }
+
+    // ── Load from db.json ──
+    async function load() {
+      el('stateMsg').style.display   = '';
+      el('stateMsg').className       = 'state-msg';
+      el('stateMsg').textContent     = 'Loading database…';
+      el('statsRow').style.display   = 'none';
+      el('chartWrap').style.display  = 'none';
+      el('txListWrap').style.display = 'none';
+
+      try {
+        const r = await fetch('db.json?t=' + Date.now());
+        if (!r.ok) throw new Error('db.json not found (status ' + r.status + ')');
+        const db = await r.json();
+
+        const deposits = (db.transactions || []).filter(t => t.amountLTC > 0);
+        const price    = db.ltcPriceNZD || null;
+        _lastDeposits  = deposits;
+
+        // Show last sync time in the badge
+        if (db.lastSync) {
+          el('lastSyncLabel').textContent = 'Updated ' + timeAgo(db.lastSync);
+        }
+        el('refreshBadge').style.display = '';
+        el('stateMsg').style.display     = 'none';
+
+        renderStats(deposits, price);
+        if (deposits.length) renderChart(deposits);
+        renderList(deposits, price);
+
+      } catch (err) {
+        el('stateMsg').className   = 'state-msg error';
+        el('stateMsg').textContent = 'Could not load database — ' + err.message;
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>

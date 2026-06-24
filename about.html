@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Smokey Allen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── About page specific ── */
+    .about-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-hero .eyebrow { display: block; margin-bottom: 1rem; }
+    .about-hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin-bottom: 1.25rem; line-height: 1.05; }
+    .about-hero .lead {
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      max-width: 500px;
+      line-height: 1.75;
+    }
+
+    /* Bio section */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      margin: 3rem 0;
+    }
+
+    .bio-cell {
+      background: var(--color-bg);
+      padding: 2rem 2.25rem;
+    }
+
+    body.dark .bio-cell { background: var(--color-bg); }
+
+    .bio-cell .eyebrow { display: block; margin-bottom: 0.75rem; }
+    .bio-cell h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+    .bio-cell p { font-size: 0.95rem; line-height: 1.75; }
+
+    /* Fun facts */
+    .facts-section { padding: 3rem 0; border-top: 1px solid var(--color-border); }
+    .facts-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    .facts-section h2 em { font-style: italic; }
+
+    .fact-list { display: flex; flex-direction: column; }
+    .fact-item {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .fact-item:first-child { border-top: 1px solid var(--color-border); }
+    .fact-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      padding-top: 0.2rem;
+    }
+    .fact-text { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7; }
+    .fact-text strong { color: var(--color-text-primary); font-weight: 600; }
+
+    /* What's on this site */
+    .pages-section { padding: 3rem 0; border-top: 1px solid var(--color-border); }
+    .pages-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .pages-section h2 em { font-style: italic; }
+
+    .page-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+    }
+
+    .page-card {
+      background: var(--color-bg);
+      padding: 1.75rem 2rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.15s;
+    }
+
+    body.dark .page-card { background: var(--color-bg); }
+    .page-card:hover { background: var(--color-bg-surface); }
+    body.dark .page-card:hover { background: #1a1a18; }
+
+    .page-card .eyebrow { display: block; margin-bottom: 0.6rem; }
+    .page-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
+    }
+    .page-card p { font-size: 0.875rem; line-height: 1.65; }
+    .page-card .arrow {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+      display: block;
+      transition: transform 0.15s;
+    }
+    .page-card:hover .arrow { transform: translateX(4px); }
+
+    @media (max-width: 680px) {
+      .bio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">SmokeyAllen</a>
+      <ul class="nav-links">
+        <li><a href="about.html" style="color: var(--color-text-primary);">About</a></li>
+        <li><a href="transactions.html">Gambling Tracker</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <div class="about-hero">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1>Just a guy<br />with a <em>website.</em></h1>
+      <p class="lead">
+        No brand. No agenda. No newsletter to sign up for.
+        This is just my little corner of the internet where I put stuff
+        I find interesting or funny.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== BIO GRID ===== -->
+  <section>
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-cell">
+          <span class="eyebrow">Who</span>
+          <h3>Smokey Allen</h3>
+          <p>
+            Regular person. Not famous. Not an influencer.
+            Just someone who figured out how to put files on the internet
+            and got carried away with it.
+          </p>
+        </div>
+        <div class="bio-cell">
+          <span class="eyebrow">Where</span>
+          <h3>New Zealand 🥝</h3>
+          <p>
+            Based in NZ, which means most of the internet happens
+            while I'm asleep. Great for productivity. Bad for keeping up
+            with things in real time.
+          </p>
+        </div>
+        <div class="bio-cell">
+          <span class="eyebrow">Why</span>
+          <h3>Why not?</h3>
+          <p>
+            Building this site was more fun than whatever I was
+            supposed to be doing. If you're reading this, congrats —
+            you've found something truly low-stakes.
+          </p>
+        </div>
+        <div class="bio-cell">
+          <span class="eyebrow">What</span>
+          <h3>Mostly chaos</h3>
+          <p>
+            A gambling tracker for Daniel, some pages I'll probably
+            add when I feel like it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUN FACTS ===== -->
+  <section class="facts-section">
+    <div class="container">
+      <h2>Things that are <em>true</em></h2>
+      <div class="fact-list">
+        <div class="fact-item">
+          <span class="fact-num">01</span>
+          <p class="fact-text"><strong>This website has no purpose.</strong> And that's kind of the point. It exists because I wanted it to exist.</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">02</span>
+          <p class="fact-text"><strong>The gambling tracker is real.</strong> My mate Daniel spends an alarming amount of money on Rollbit. This is how I keep track. He knows about it.</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">03</span>
+          <p class="fact-text"><strong>The dark mode actually works properly.</strong> It remembers your preference and respects your system setting.</p>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">04</span>
+          <p class="fact-text"><strong>There's no tracking on this site.</strong> No analytics, no cookies, no ad network watching you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGES ===== -->
+  <section class="pages-section">
+    <div class="container">
+      <h2>What's <em>on here</em></h2>
+      <div class="page-cards">
+        <a href="/" class="page-card">
+          <span class="eyebrow">Page</span>
+          <h3>Home</h3>
+          <p>The front door. Not much to say really. It's the home page.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="transactions.html" class="page-card">
+          <span class="eyebrow">Page</span>
+          <h3>Gambling Tracker</h3>
+          <p>Live LTC deposit tracking for Daniel's Rollbit account. Updated occassionally. Entirely his fault this exists.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="about.html" class="page-card">
+          <span class="eyebrow">Page</span>
+          <h3>About</h3>
+          <p>You're already here. Bit weird to click this one but I respect it.</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">SA</span>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="transactions.html">Gambling Tracker</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Smokey Allen. All rights reserved. (Not that there's much to steal.)</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body   = document.body;
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark');
+    }
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmokeyAllen</title>
+  <meta name="description" content="Welcome to smokeyallen.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <a href="/" class="nav-logo">SmokeyAllen</a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="transactions.html">Gambling Tracker</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-heading">
+          <span class="eyebrow">smokeyallen.com</span>
+          <h1>Hello,<br /><em>world.</em></h1>
+        </div>
+        <div class="hero-meta">
+          <p>Still figuring out exactly what belongs here — but you found it.</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end;">
+            <a href="#about" class="btn btn-dark">About me</a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-row">
+        <div class="section-label">
+          <span class="eyebrow">About</span>
+        </div>
+        <div>
+          <h2 style="margin-bottom: 1.5rem;">A little<br /><em>about me</em></h2>
+          <p style="max-width: 520px; margin-bottom: 2.5rem;">
+            Every great website starts with a person behind it. This is where
+            you tell your story — who you are, what you do, and why you do it.
+            Update this whenever you're ready.
+          </p>
+
+          <div class="card-grid">
+            <div class="card">
+              <span class="eyebrow">What I do</span>
+              <h3>Skills &amp; craft</h3>
+              <p style="font-size: 0.9rem;">
+                Describe your trade, profession, or passion here.
+                Keep it honest and direct.
+              </p>
+            </div>
+            <div class="card">
+              <span class="eyebrow">Where I'm from</span>
+              <h3>Roots &amp; base</h3>
+              <p style="font-size: 0.9rem;">
+                Your location, background, or the community
+                you're a part of.
+              </p>
+            </div>
+            <div class="card">
+              <span class="eyebrow">What drives me</span>
+              <h3>Values &amp; focus</h3>
+              <p style="font-size: 0.9rem;">
+                What gets you out of bed in the morning?
+                Your interests, values, goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ===== WORK ===== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-row">
+        <div class="section-label">
+          <span class="eyebrow">Work</span>
+        </div>
+        <div>
+          <h2 style="margin-bottom: 2.5rem;">Things<br /><em>I've made</em></h2>
+
+          <div class="list-items">
+            <div class="list-item">
+              <div>
+                <h3>Project one</h3>
+                <p>A short description of something you built, created, or contributed to.</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="tag">2024</span>
+                <span class="list-item-arrow">→</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <h3>Project two</h3>
+                <p>Another project or piece of work worth showing the world.</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="tag">2024</span>
+                <span class="list-item-arrow">→</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <h3>Project three</h3>
+                <p>A third thing worth highlighting. Duplicate this row to add more.</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="tag">2025</span>
+                <span class="list-item-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-row">
+        <div class="section-label">
+          <span class="eyebrow">Contact</span>
+        </div>
+        <div>
+          <h2 style="margin-bottom: 1.25rem;">Let's<br /><em>talk</em></h2>
+          <p style="max-width: 420px; margin-bottom: 2rem;">
+            Got something to say? Drop me a line — business, collaboration,
+            or just a hello. I'm happy to hear from you.
+          </p>
+          <a href="mailto:hello@smokeyallen.com" class="btn btn-dark">
+            Send an email &nbsp;→
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">SA</span>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Smokey Allen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
