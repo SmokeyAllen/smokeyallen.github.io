@@ -40,11 +40,11 @@
     /* Stats row */
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
       background: var(--color-border);
       border: 1px solid var(--color-border);
-      margin: 2.5rem 0;
+      margin: 2.5rem 0 0;
     }
 
     .stat-box {
@@ -61,6 +61,132 @@
       font-size: 1.8rem;
       color: var(--color-text-primary);
       line-height: 1;
+    }
+
+    .stat-sub {
+      margin-top: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+    }
+
+    .goal-eta {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      margin: 1rem 0 0;
+    }
+
+    .goal-eta-panel {
+      background: var(--color-bg);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .goal-eta-count .eyebrow {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .goal-eta-days {
+      font-family: var(--font-serif);
+      font-size: clamp(3.2rem, 9vw, 5.8rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      color: var(--color-text-primary);
+    }
+
+    .goal-eta-unit {
+      margin-top: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .goal-eta-title {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .goal-eta-summary {
+      max-width: 38rem;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+    }
+
+    .goal-eta-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.2rem;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .effort-section {
+      margin-top: 1.25rem;
+    }
+
+    .effort-header {
+      max-width: 560px;
+      margin-bottom: 1rem;
+    }
+
+    .effort-header h3 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .effort-header p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .effort-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+    }
+
+    .effort-fact {
+      background: var(--color-bg);
+      padding: 1rem 1.1rem;
+    }
+
+    .effort-fact-label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .effort-fact-value {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--color-text-primary);
+    }
+
+    .goal-eta-fact-sub {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
     }
 
     /* Chart area */
@@ -175,8 +301,135 @@
       margin-bottom: 1rem;
     }
 
+    /* What else this money could buy */
+    .afforded-section {
+      margin: 0 0 2.75rem;
+      padding-top: 0.5rem;
+    }
+
+    .afforded-header {
+      max-width: 640px;
+      margin-bottom: 1.5rem;
+    }
+
+    .afforded-header h2 {
+      margin: 0.4rem 0 0.8rem;
+      font-size: clamp(1.75rem, 4vw, 2.9rem);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .afforded-intro {
+      font-size: 0.98rem;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+    }
+
+    .afforded-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+    }
+
+    .afforded-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .afforded-card-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, var(--afforded-accent) 0, transparent 58%),
+        linear-gradient(160deg, rgba(250, 249, 247, 0.08), rgba(26, 26, 26, 0.12));
+    }
+
+    .afforded-card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26, 26, 26, 0.08), rgba(26, 26, 26, 0.36));
+      pointer-events: none;
+    }
+
+    .afforded-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.9) contrast(1.04) brightness(0.92);
+    }
+
+    .afforded-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 1.35rem 1.4rem 1.5rem;
+    }
+
+    .afforded-count {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 5vw, 2.9rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      color: var(--color-text-primary);
+    }
+
+    .afforded-title {
+      margin-top: 0.6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .afforded-price {
+      margin-top: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .afforded-empty {
+      padding: 1.35rem 1.4rem;
+      background: var(--color-bg);
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .stats-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .goal-eta {
+        grid-template-columns: 1fr;
+      }
+
+      .effort-facts {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
       .tx-hash { max-width: 180px; }
+
+      .afforded-section {
+        margin-bottom: 2.25rem;
+      }
+
+      .afforded-body {
+        padding: 1.2rem 1.1rem 1.25rem;
+      }
     }
   </style>
 </head>
@@ -187,7 +440,7 @@
     <nav>
       <a href="/" class="nav-logo">SmokeyAllen</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="transactions.html">Gambling Tracker</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -216,7 +469,7 @@
     <div class="container">
       <span class="eyebrow">Daniels gambling tracker</span>
       <h1>Gamble <em>monitor</em></h1>
-      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally.</p>
+      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally updated.</p>
       <div>
         <span class="addr-pill">MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg</span>
       </div>
@@ -236,29 +489,31 @@
       <!-- Stats -->
       <div class="stats-row" id="statsRow" style="display:none;">
         <div class="stat-box">
-          <span class="eyebrow">Total deposited</span>
-          <div class="stat-value" id="statTotal">—</div>
-        </div>
-        <div class="stat-box">
-          <span class="eyebrow">No. of deposits</span>
-          <div class="stat-value" id="statCount">—</div>
-        </div>
-        <div class="stat-box">
-          <span class="eyebrow">Largest deposit</span>
-          <div class="stat-value" id="statMax">—</div>
-        </div>
-        <div class="stat-box">
-          <span class="eyebrow">Last 7 days (NZD)</span>
-          <div class="stat-value" id="statPrice">—</div>
-        </div>
-        <div class="stat-box">
-          <span class="eyebrow">Total value at time (NZD)</span>
+          <span class="eyebrow">Total value (NZD)</span>
           <div class="stat-value" id="statValueNZD">—</div>
         </div>
         <div class="stat-box">
-          <span class="eyebrow">Highest day (LTC)</span>
+          <span class="eyebrow">Amount gambled this week (NZD)</span>
+          <div class="stat-value" id="statWeekNZD">—</div>
+          <div class="stat-sub" id="statWeekRange"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Largest single deposit (NZD)</span>
+          <div class="stat-value" id="statMaxNZD">—</div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Total deposited (LTC)</span>
+          <div class="stat-value" id="statTotalLTC">—</div>
+          <div class="stat-sub" id="statCount"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Most deposited in one day (LTC)</span>
           <div class="stat-value" id="statBestDay">—</div>
           <div class="stat-sub" id="statBestDayDate"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Largest single deposit (LTC)</span>
+          <div class="stat-value" id="statMaxLTC">—</div>
         </div>
       </div>
 
@@ -267,6 +522,46 @@
         <div class="section-title">Deposits over time (LTC)</div>
         <canvas id="txChart"></canvas>
       </div>
+
+      <section class="afforded-section" id="affordedSection" style="display:none;">
+        <div class="afforded-header">
+          <span class="eyebrow">With this money</span>
+          <h2>Here's what could have been bought instead</h2>
+          <p class="afforded-intro" id="affordedIntro"></p>
+        </div>
+        <div class="afforded-grid" id="affordedGrid"></div>
+        <section class="goal-eta" id="goalEta" style="display:none;">
+            <div class="goal-eta-panel goal-eta-count">
+              <span class="eyebrow">Next goal estimate</span>
+              <div class="goal-eta-days" id="goalEtaDays">—</div>
+              <div class="goal-eta-unit" id="goalEtaUnit">days until next goal</div>
+            </div>
+          <div class="goal-eta-panel">
+            <h2 class="goal-eta-title" id="goalEtaTitle">—</h2>
+            <p class="goal-eta-summary" id="goalEtaSummary"></p>
+            <div class="goal-eta-meta" id="goalEtaMeta" style="display:none;">
+              <span id="goalEtaRemaining"></span>
+              <span id="goalEtaPace"></span>
+            </div>
+          </div>
+        </section>
+        <section class="effort-section" id="effortSection" style="display:none;">
+          <div class="effort-header">
+            <span class="eyebrow">The amount of hours this took</span>
+            <h3>How long to earn this amount to gamble</h3>
+          </div>
+          <div class="effort-facts">
+            <div class="effort-fact">
+              <span class="effort-fact-label">Hours at minimum wage</span>
+              <div class="effort-fact-value" id="goalEtaMinWageHours">—</div>
+            </div>
+            <div class="effort-fact">
+              <span class="effort-fact-label">Weeks on the benny</span>
+              <div class="effort-fact-value" id="goalEtaBenefitWeeks">—</div>
+            </div>
+          </div>
+        </section>
+      </section>
 
       <!-- Tx list -->
       <div id="txListWrap" style="display:none;">
@@ -311,6 +606,85 @@
 
     let chartInstance = null;
     let _lastDeposits = [];
+    const NZ_ADULT_MIN_WAGE = 23.95;
+    const BENNY_PER_WEEK = 230;
+    const countFormat = new Intl.NumberFormat('en-NZ');
+    const decimalFormat = new Intl.NumberFormat('en-NZ', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1
+    });
+    const currencyFormat = new Intl.NumberFormat('en-NZ', {
+      style: 'currency',
+      currency: 'NZD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    });
+    const affordableItems = [
+      {
+        singular: 'Coffee',
+        plural: 'Coffees',
+        price: 6.5,
+        image: 'images/coffee.jpg',
+        alt: 'Coffee on a cafe table',
+        accent: '#c8854a99'
+      },
+      {
+        singular: 'Takeaway Feed',
+        plural: 'Takeaway Feeds',
+        price: 22,
+        image: 'images/pizza.jpg',
+        alt: 'Takeaway burgers and chips on a table',
+        accent: '#a24f3499'
+      },
+      {
+        singular: 'Weekly Grocery Shop',
+        plural: 'Weekly Grocery Shops',
+        price: 140,
+        image: 'images/grocery.jpg',
+        alt: 'Fresh groceries arranged in a shopping basket',
+        accent: '#5b8b5a99'
+      },
+      {
+        singular: 'Week of Todd\'s Rent',
+        plural: 'Weeks of Todd\'s Rent',
+        price: 450,
+        image: 'images/rent.jpg',
+        alt: 'Sunlit apartment interior',
+        accent: '#92745f99'
+      },
+      {
+        singular: 'New Gaming Console',
+        plural: 'New Gaming Consoles',
+        price: 900,
+        image: 'images/xbox.jpg',
+        alt: 'Gaming setup with a controller and console',
+        accent: '#5b6fae99'
+      },
+      {
+        singular: 'Trip to Japan',
+        plural: 'Trips to Japan',
+        price: 3500,
+        image: 'images/japan.jpg',
+        alt: 'Tokyo street at night with bright signs',
+        accent: '#8d3d4e99'
+      },
+      {
+        singular: 'Second-Hand Car',
+        plural: 'Second-Hand Cars',
+        price: 8000,
+        image: 'images/car-secondhand.jpg',
+        alt: 'Parked second-hand car in daylight',
+        accent: '#5e5d5c99'
+      },
+      {
+        singular: 'Luxury Car',
+        plural: 'Luxury Cars',
+        price: 50000,
+        image: 'images/car-new.jpg',
+        alt: 'Luxury sports car on an open road',
+        accent: '#5d463399'
+      }
+    ];
 
     const el = id => document.getElementById(id);
 
@@ -322,35 +696,219 @@
       return Math.floor(mins / 1440) + 'd ago';
     };
 
+    const formatShortDate = date => date.toLocaleDateString('en-NZ', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+
+    const formatShortDayMonth = date => date.toLocaleDateString('en-NZ', {
+      day: 'numeric',
+      month: 'short'
+    });
+
+    function getReferenceDate(lastSync, deposits) {
+      if (lastSync) return new Date(lastSync);
+      if (deposits.length) return new Date(Math.max(...deposits.map(dep => new Date(dep.confirmed).getTime())));
+      return new Date();
+    }
+
+    function getLocalDateKey(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return year + '-' + month + '-' + day;
+    }
+
+    function getStartOfWeek(date) {
+      const start = new Date(date);
+      start.setHours(0, 0, 0, 0);
+      const day = (start.getDay() + 6) % 7;
+      start.setDate(start.getDate() - day);
+      return start;
+    }
+
+    function getCurrentMonthSummary(deposits, price, referenceDate) {
+      const monthStart = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 1);
+      const totalNzd = deposits.reduce((sum, dep) => {
+        const confirmed = new Date(dep.confirmed);
+        if (confirmed < monthStart || confirmed > referenceDate) return sum;
+        return sum + (dep.amountLTC * price);
+      }, 0);
+      const elapsedDays = Math.max(referenceDate.getDate(), 1);
+
+      return {
+        monthName: referenceDate.toLocaleDateString('en-NZ', { month: 'long' }),
+        totalNzd,
+        elapsedDays,
+        dailyPaceNzd: totalNzd / elapsedDays
+      };
+    }
+
+    function getAffordableItems(amountNzd) {
+      return affordableItems
+        .map(item => ({ ...item, count: Math.floor(amountNzd / item.price) }))
+        .sort((a, b) => a.price - b.price);
+    }
+
+    function getWeekSummary(deposits, price, referenceDate) {
+      const weekStart = getStartOfWeek(referenceDate);
+      const totalNzd = deposits.reduce((sum, dep) => {
+        const confirmed = new Date(dep.confirmed);
+        if (confirmed < weekStart || confirmed > referenceDate) return sum;
+        return sum + (dep.amountLTC * price);
+      }, 0);
+
+      return {
+        totalNzd,
+        weekStart
+      };
+    }
+
     // ── Render stats ──
-    function renderStats(deposits, price) {
+    function renderStats(deposits, price, referenceDate) {
       const total = deposits.reduce((s, d) => s + d.amountLTC, 0);
       const max   = deposits.length ? Math.max(...deposits.map(d => d.amountLTC)) : 0;
+      const weekSummary = getWeekSummary(deposits, price, referenceDate);
 
-      el('statTotal').textContent    = total.toFixed(4) + ' LTC';
-      el('statCount').textContent    = deposits.length;
-      el('statMax').textContent      = max.toFixed(4) + ' LTC';
-      const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-      const last7 = deposits.filter(d => new Date(d.confirmed).getTime() >= sevenDaysAgo);
-      const last7NZD = last7.reduce((s, d) => s + (d.valueNZD || 0), 0);
-      el('statPrice').textContent    = last7NZD > 0 ? '$' + last7NZD.toFixed(2) : '—';
-      const historicalTotal = deposits.reduce((s, d) => s + (d.valueNZD || 0), 0);
-      el('statValueNZD').textContent = historicalTotal > 0 ? '$' + historicalTotal.toFixed(2) : '—';
-
+      el('statValueNZD').textContent = price ? currencyFormat.format(total * price) : '—';
+      el('statWeekNZD').textContent  = price ? currencyFormat.format(weekSummary.totalNzd) : '—';
+      el('statWeekRange').textContent = formatShortDayMonth(weekSummary.weekStart) + ' - ' + formatShortDayMonth(referenceDate);
+      el('statMaxNZD').textContent   = price ? currencyFormat.format(max * price) : '—';
+      el('statTotalLTC').textContent = total.toFixed(4) + ' LTC';
+      el('statCount').textContent    = deposits.length + ' deposits tracked';
+      el('statMaxLTC').textContent   = max.toFixed(4) + ' LTC';
 
       // Best day calculation
       const byDay = {};
       deposits.forEach(d => {
-        const day = d.confirmed.slice(0, 10);
+        const day = getLocalDateKey(new Date(d.confirmed));
         byDay[day] = (byDay[day] || 0) + d.amountLTC;
       });
       const bestDay = Object.entries(byDay).sort((a, b) => b[1] - a[1])[0];
       if (bestDay) {
         el('statBestDay').textContent = bestDay[1].toFixed(4) + ' LTC';
-        el('statBestDayDate').textContent = new Date(bestDay[0]).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
+        el('statBestDayDate').textContent = formatShortDate(new Date(bestDay[0] + 'T00:00:00'));
+      } else {
+        el('statBestDay').textContent = '—';
+        el('statBestDayDate').textContent = '';
       }
 
       el('statsRow').style.display   = '';
+    }
+
+    function renderNextGoalEta(amountNzd, deposits, price, referenceDate) {
+      const block = el('goalEta');
+      const days = el('goalEtaDays');
+      const unit = el('goalEtaUnit');
+      const title = el('goalEtaTitle');
+      const summary = el('goalEtaSummary');
+      const meta = el('goalEtaMeta');
+      const remaining = el('goalEtaRemaining');
+      const pace = el('goalEtaPace');
+
+      if (!block || !days || !unit || !title || !summary || !meta || !remaining || !pace) return;
+
+      block.style.display = 'none';
+      meta.style.display = 'none';
+      days.textContent = '—';
+      unit.textContent = 'days till next goal';
+      title.textContent = '—';
+      summary.textContent = '';
+      remaining.textContent = '';
+      pace.textContent = '';
+
+      if (!amountNzd || !price || amountNzd <= 0) return;
+
+      const pricedItems = getAffordableItems(amountNzd);
+      const nextGoal = pricedItems.find(item => item.price > amountNzd) || null;
+      const monthSummary = getCurrentMonthSummary(deposits, price, referenceDate);
+
+      if (!nextGoal) {
+        days.textContent = '0';
+        unit.textContent = 'goal list cleared';
+        title.textContent = 'All listed goals already reached';
+        summary.textContent = 'The tracked total is above every item currently in the comparison list.';
+        block.style.display = '';
+        meta.style.display = '';
+        return;
+      }
+
+      title.textContent = nextGoal.singular;
+      const gap = nextGoal.price - amountNzd;
+      remaining.textContent = currencyFormat.format(gap) + ' to go';
+
+      if (monthSummary.dailyPaceNzd > 0) {
+        const daysToGoal = gap / monthSummary.dailyPaceNzd;
+        const roundedDays = Math.max(1, Math.ceil(daysToGoal));
+        const etaDate = new Date(referenceDate);
+        etaDate.setDate(etaDate.getDate() + roundedDays);
+
+        days.textContent = countFormat.format(roundedDays);
+        unit.textContent = (roundedDays === 1 ? 'day' : 'days') + ' till ' + nextGoal.singular;
+        summary.textContent = 'At ' + monthSummary.monthName + '\'s pace, this target lands around ' + formatShortDate(etaDate) + '.';
+        pace.textContent = monthSummary.monthName + ' pace ' + currencyFormat.format(monthSummary.dailyPaceNzd) + ' per day';
+      } else {
+        days.textContent = '—';
+        unit.textContent = 'waiting on month pace';
+        summary.textContent = 'No current-month pace yet, so the countdown will appear once there is activity this month.';
+      }
+
+      block.style.display = '';
+      meta.style.display = '';
+    }
+
+    function renderEffortSection(amountNzd) {
+      const section = el('effortSection');
+      const minWageHours = el('goalEtaMinWageHours');
+      const benefitWeeks = el('goalEtaBenefitWeeks');
+
+      if (!section || !minWageHours || !benefitWeeks) return;
+
+      section.style.display = 'none';
+      minWageHours.textContent = '—';
+      benefitWeeks.textContent = '—';
+
+      if (!amountNzd || amountNzd <= 0) return;
+
+      minWageHours.textContent = decimalFormat.format(amountNzd / NZ_ADULT_MIN_WAGE) + ' hrs';
+      benefitWeeks.textContent = decimalFormat.format(amountNzd / BENNY_PER_WEEK) + ' weeks';
+      section.style.display = '';
+    }
+
+    function renderAfforded(amountNzd) {
+      const section = el('affordedSection');
+      const intro   = el('affordedIntro');
+      const grid    = el('affordedGrid');
+
+      if (!section || !intro || !grid) return;
+
+      section.style.display = 'none';
+      intro.textContent = '';
+      grid.innerHTML = '';
+
+      if (!amountNzd || amountNzd <= 0) return;
+
+      const pricedItems = getAffordableItems(amountNzd);
+
+      intro.textContent = 'Based on the current tracked total of ' + currencyFormat.format(amountNzd) + ' NZD.';
+
+      grid.innerHTML = pricedItems.map(item => {
+        return `
+        <article class="afforded-card" style="--afforded-accent: ${item.accent};">
+          <div class="afforded-card-media">
+            <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+          </div>
+          <div class="afforded-body">
+            <div class="afforded-count">${countFormat.format(item.count)}</div>
+            <div class="afforded-title">${item.count === 1 ? item.singular : item.plural}</div>
+            <div class="afforded-price">roughly ${currencyFormat.format(item.price)} each</div>
+          </div>
+        </article>
+      `;
+      }).join('');
+
+      section.style.display = '';
     }
 
     // ── Render chart ──
@@ -449,7 +1007,7 @@
         const dt   = new Date(dep.confirmed);
         const date = dt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
         const time = dt.toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
-        const nzd  = dep.valueNZD ? ` ≈ $${dep.valueNZD.toFixed(2)} NZD` : (price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '');
+        const nzd  = price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '';
         const short = dep.hash.slice(0, 16) + '…' + dep.hash.slice(-8);
 
         const row = document.createElement('div');
@@ -480,7 +1038,11 @@
       el('stateMsg').className       = 'state-msg';
       el('stateMsg').textContent     = 'Loading database…';
       el('statsRow').style.display   = 'none';
+      el('goalEta').style.display    = 'none';
+      el('goalEtaMeta').style.display = 'none';
+      el('effortSection').style.display = 'none';
       el('chartWrap').style.display  = 'none';
+      el('affordedSection').style.display = 'none';
       el('txListWrap').style.display = 'none';
 
       try {
@@ -490,6 +1052,7 @@
 
         const deposits = (db.transactions || []).filter(t => t.amountLTC > 0);
         const price    = db.ltcPriceNZD || null;
+        const referenceDate = getReferenceDate(db.lastSync, deposits);
         _lastDeposits  = deposits;
 
         // Show last sync time in the badge
@@ -499,8 +1062,11 @@
         el('refreshBadge').style.display = '';
         el('stateMsg').style.display     = 'none';
 
-        renderStats(deposits, price);
+        renderStats(deposits, price, referenceDate);
+        renderNextGoalEta(price ? deposits.reduce((sum, dep) => sum + dep.amountLTC, 0) * price : 0, deposits, price, referenceDate);
+        renderEffortSection(price ? deposits.reduce((sum, dep) => sum + dep.amountLTC, 0) * price : 0);
         if (deposits.length) renderChart(deposits);
+        renderAfforded(price ? deposits.reduce((sum, dep) => sum + dep.amountLTC, 0) * price : 0);
         renderList(deposits, price);
 
       } catch (err) {
