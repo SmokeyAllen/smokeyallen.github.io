@@ -123,7 +123,7 @@
       text-align: right;
     }
 
-    .tx-amount .tx-usd {
+    .tx-amount .tx-nzd {
       display: block;
       font-size: 0.72rem;
       color: var(--color-text-muted);
@@ -142,7 +142,7 @@
 
     .state-msg.error { color: #c0392b; }
 
-    /* Auto-refresh badge */
+    /* Sync badge */
     .refresh-badge {
       display: inline-flex;
       align-items: center;
@@ -182,14 +182,14 @@
 </head>
 <body>
 
-   <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER ===== -->
   <header>
     <nav>
       <a href="/" class="nav-logo">SmokeyAllen</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="transactions.html">Gambling Tracker</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -216,18 +216,15 @@
     <div class="container">
       <span class="eyebrow">Daniels gambling tracker</span>
       <h1>Gamble <em>monitor</em></h1>
-      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and refreshed every hour.</p>
+      <p>Tracking all the incoming LTC deposits to Daniels Rollbit address. Data pulled live from the blockchain and occassionally.</p>
       <div>
         <span class="addr-pill">MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg</span>
       </div>
       <div>
         <span class="refresh-badge" id="refreshBadge" style="display:none;">
           <span class="refresh-dot"></span>
-          Auto-update every hour
+          <span id="lastSyncLabel">Updated recently</span>
         </span>
-
-        <p>Please note that this page is work in progress. Figures may not be accurate</p>
-
       </div>
     </div>
   </div>
@@ -258,6 +255,11 @@
           <span class="eyebrow">Total value (NZD)</span>
           <div class="stat-value" id="statValueNZD">—</div>
         </div>
+        <div class="stat-box">
+          <span class="eyebrow">Highest day (LTC)</span>
+          <div class="stat-value" id="statBestDay">—</div>
+          <div class="stat-sub" id="statBestDayDate"></div>
+        </div>
       </div>
 
       <!-- Chart -->
@@ -273,7 +275,7 @@
       </div>
 
       <!-- State placeholder -->
-      <div class="state-msg" id="stateMsg">Fetching transactions…</div>
+      <div class="state-msg" id="stateMsg">Loading database…</div>
 
     </div>
   </main>
@@ -293,9 +295,6 @@
   </footer>
 
   <script>
-    // ── Hardcoded address — change this to update which address is tracked ──
-    const TRACKED_ADDRESS = 'MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg';
-
     // ── Dark mode ──
     const toggle = document.getElementById('themeToggle');
     const body   = document.body;
@@ -309,68 +308,43 @@
       if (chartInstance) updateChartTheme();
     });
 
-    // ── State ──
     let chartInstance = null;
-    let ltcPrice      = null;
     let _lastDeposits = [];
 
     const el = id => document.getElementById(id);
 
-    // ── Fetch LTC/NZD price ──
-    async function fetchPrice() {
-      try {
-        const r = await fetch('https://api.coinbase.com/v2/prices/LTC-NZD/spot');
-        const d = await r.json();
-        ltcPrice = parseFloat(d.data.amount) || null;
-      } catch { ltcPrice = null; }
-    }
-
-// ── Fetch transactions ──
-    async function fetchTxs() {
-      const r = await fetch('/api/deposits');
-
-        if (!r.ok) {
-        throw new Error(`API error ${r.status}`);
-      }
-
-      return r.json();
-    }
-
-    // ── Parse deposits sent TO the address ──
-    function parseDeposits(data, address) {
-      const addr = address.toLowerCase();
-      const deposits = [];
-
-      for (const tx of (data.txs || [])) {
-        let amountSat = 0;
-        for (const out of (tx.outputs || [])) {
-          const addrs = (out.addresses || []).map(a => a.toLowerCase());
-          if (addrs.includes(addr)) amountSat += out.value;
-        }
-        if (amountSat > 0) {
-          deposits.push({
-            hash:      tx.hash,
-            confirmed: tx.confirmed || tx.received,
-            amountLTC: amountSat / 1e8,
-          });
-        }
-      }
-
-      deposits.sort((a, b) => new Date(a.confirmed) - new Date(b.confirmed));
-      return deposits;
-    }
+    const timeAgo = iso => {
+      const mins = Math.floor((Date.now() - new Date(iso)) / 60000);
+      if (mins < 1)    return 'just now';
+      if (mins < 60)   return mins + 'm ago';
+      if (mins < 1440) return Math.floor(mins / 60) + 'h ago';
+      return Math.floor(mins / 1440) + 'd ago';
+    };
 
     // ── Render stats ──
-    function renderStats(deposits) {
+    function renderStats(deposits, price) {
       const total = deposits.reduce((s, d) => s + d.amountLTC, 0);
       const max   = deposits.length ? Math.max(...deposits.map(d => d.amountLTC)) : 0;
 
-      el('statTotal').textContent = total.toFixed(4) + ' LTC';
-      el('statCount').textContent = deposits.length;
-      el('statMax').textContent   = max.toFixed(4) + ' LTC';
-      el('statPrice').textContent = ltcPrice ? '$' + ltcPrice.toFixed(2) : '—';
-      el('statValueNZD').textContent = ltcPrice ? '$' + (total * ltcPrice).toFixed(2) : '—';
-      el('statsRow').style.display = '';
+      el('statTotal').textContent    = total.toFixed(4) + ' LTC';
+      el('statCount').textContent    = deposits.length;
+      el('statMax').textContent      = max.toFixed(4) + ' LTC';
+      el('statPrice').textContent    = price ? '$' + price.toFixed(2) : '—';
+      el('statValueNZD').textContent = price ? '$' + (total * price).toFixed(2) : '—';
+
+      // Best day calculation
+      const byDay = {};
+      deposits.forEach(d => {
+        const day = d.confirmed.slice(0, 10);
+        byDay[day] = (byDay[day] || 0) + d.amountLTC;
+      });
+      const bestDay = Object.entries(byDay).sort((a, b) => b[1] - a[1])[0];
+      if (bestDay) {
+        el('statBestDay').textContent = bestDay[1].toFixed(4) + ' LTC';
+        el('statBestDayDate').textContent = new Date(bestDay[0]).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
+      }
+
+      el('statsRow').style.display   = '';
     }
 
     // ── Render chart ──
@@ -379,10 +353,9 @@
       const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
       const textColor = isDark ? '#8a8780' : '#6b6762';
 
-      const labels  = deposits.map(d =>
-        new Date(d.confirmed).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short' })
-      );
-      const amounts = deposits.map(d => d.amountLTC);
+      const sorted  = [...deposits].sort((a, b) => new Date(a.confirmed) - new Date(b.confirmed));
+      const labels  = sorted.map(d => new Date(d.confirmed).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short' }));
+      const amounts = sorted.map(d => d.amountLTC);
 
       let cum = 0;
       const cumulative = amounts.map(a => { cum += a; return +cum.toFixed(6); });
@@ -456,7 +429,7 @@
     }
 
     // ── Render transaction list ──
-    function renderList(deposits) {
+    function renderList(deposits, price) {
       const list = el('txList');
       list.innerHTML = '';
 
@@ -466,11 +439,11 @@
         return;
       }
 
-      [...deposits].reverse().forEach(dep => {
+      [...deposits].sort((a, b) => new Date(b.confirmed) - new Date(a.confirmed)).forEach(dep => {
         const dt   = new Date(dep.confirmed);
         const date = dt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
         const time = dt.toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
-        const usd  = ltcPrice ? ` ≈ $${(dep.amountLTC * ltcPrice).toFixed(2)} NZD` : '';
+        const nzd  = price ? ` ≈ $${(dep.amountLTC * price).toFixed(2)} NZD` : '';
         const short = dep.hash.slice(0, 16) + '…' + dep.hash.slice(-8);
 
         const row = document.createElement('div');
@@ -478,7 +451,7 @@
         row.innerHTML = `
           <div>
             <div class="tx-hash">
-              <a href="https://live.blockcypher.com/ltc/tx/${dep.hash}/" target="_blank" rel="noopener">
+              <a href="https://litecoinspace.org/tx/${dep.hash}" target="_blank" rel="noopener">
                 ${short}
               </a>
             </div>
@@ -486,7 +459,7 @@
           </div>
           <div class="tx-amount">
             ${dep.amountLTC.toFixed(4)} LTC
-            ${usd ? `<span class="tx-usd">${usd}</span>` : ''}
+            ${nzd ? `<span class="tx-nzd">${nzd}</span>` : ''}
           </div>
         `;
         list.appendChild(row);
@@ -495,35 +468,42 @@
       el('txListWrap').style.display = '';
     }
 
-    // ── Main load ──
+    // ── Load from db.json ──
     async function load() {
-      el('stateMsg').style.display    = '';
-      el('stateMsg').className        = 'state-msg';
-      el('stateMsg').textContent      = 'Fetching transactions…';
-      el('statsRow').style.display    = 'none';
-      el('chartWrap').style.display   = 'none';
-      el('txListWrap').style.display  = 'none';
+      el('stateMsg').style.display   = '';
+      el('stateMsg').className       = 'state-msg';
+      el('stateMsg').textContent     = 'Loading database…';
+      el('statsRow').style.display   = 'none';
+      el('chartWrap').style.display  = 'none';
+      el('txListWrap').style.display = 'none';
 
       try {
-        await fetchPrice();
-        const data = await fetchTxs();
-        const deposits = parseDeposits(data, TRACKED_ADDRESS);
+        const r = await fetch('db.json?t=' + Date.now());
+        if (!r.ok) throw new Error('db.json not found (status ' + r.status + ')');
+        const db = await r.json();
+
+        const deposits = (db.transactions || []).filter(t => t.amountLTC > 0);
+        const price    = db.ltcPriceNZD || null;
         _lastDeposits  = deposits;
 
-        el('stateMsg').style.display     = 'none';
+        // Show last sync time in the badge
+        if (db.lastSync) {
+          el('lastSyncLabel').textContent = 'Updated ' + timeAgo(db.lastSync);
+        }
         el('refreshBadge').style.display = '';
-        renderStats(deposits);
+        el('stateMsg').style.display     = 'none';
+
+        renderStats(deposits, price);
         if (deposits.length) renderChart(deposits);
-        renderList(deposits);
+        renderList(deposits, price);
+
       } catch (err) {
         el('stateMsg').className   = 'state-msg error';
-        el('stateMsg').textContent = 'Could not fetch data — ' + err.message;
+        el('stateMsg').textContent = 'Could not load database — ' + err.message;
       }
     }
 
-    // ── Start on page load, then refresh every hour ──
     load();
-    setInterval(load, 6000_000);
   </script>
 </body>
 </html>
