@@ -318,11 +318,14 @@
       } catch { ltcPrice = null; }
     }
 
-    // ── Fetch transactions ──
-    async function fetchTxs(address) {
-      const url = `https://api.blockcypher.com/v1/ltc/main/addrs/${address}/full?limit=50&confirmations=1`;
-      const r = await fetch(url);
-      if (!r.ok) throw new Error(`API error ${r.status}`);
+// ── Fetch transactions ──
+    async function fetchTxs() {
+      const r = await fetch('/api/deposits');
+
+        if (!r.ok) {
+        throw new Error(`API error ${r.status}`);
+      }
+
       return r.json();
     }
 
@@ -495,7 +498,7 @@
 
       try {
         await fetchPrice();
-        const data     = await fetchTxs(TRACKED_ADDRESS);
+        const data = await fetchTxs();
         const deposits = parseDeposits(data, TRACKED_ADDRESS);
         _lastDeposits  = deposits;
 
