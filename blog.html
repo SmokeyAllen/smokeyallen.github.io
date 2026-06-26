@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Smokey Allen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    .blog-hero {
+      padding: 5rem 0 3.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .blog-hero .eyebrow { display: block; margin-bottom: 1rem; }
+    .blog-hero h1 { margin-bottom: 0.75rem; }
+    .blog-hero p { max-width: 440px; }
+
+    /* Tag filter bar */
+    .tag-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tag-bar-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-right: 0.25rem;
+    }
+
+    .tag-filter {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      font-size: 0.78rem;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      border: 1px solid transparent;
+      font-family: var(--font-sans);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .tag-filter:hover,
+    .tag-filter.active {
+      background: var(--color-text-primary);
+      color: var(--color-bg);
+    }
+
+    body.dark .tag-filter {
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+    }
+
+    body.dark .tag-filter:hover,
+    body.dark .tag-filter.active {
+      background: var(--color-text-primary);
+      color: var(--color-bg);
+    }
+
+    /* Article list */
+    .article-list { display: flex; flex-direction: column; }
+
+    .article-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--color-border);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .article-item:first-child { border-top: 1px solid var(--color-border); }
+    .article-item:hover { opacity: 0.65; }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+    }
+
+    .article-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    .article-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      font-size: 0.7rem;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+    }
+
+    body.dark .article-tag {
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+    }
+
+    .article-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-excerpt {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .article-arrow {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    .article-count {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      padding: 1.25rem 0 0;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--color-text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-item { grid-template-columns: 1fr; gap: 0; }
+      .article-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <div class="blog-hero">
+    <div class="container">
+      <span class="eyebrow">Blog</span>
+      <h1>Thoughts &amp; <em>stuff</em></h1>
+      <p>Things I find interesting enough to write down. No schedule, no niche, no agenda.</p>
+    </div>
+  </div>
+
+  <!-- Tag filter -->
+  <div class="container">
+    <div class="tag-bar">
+      <span class="tag-bar-label">Filter</span>
+      <button class="tag-filter active" onclick="filterTag('all', this)">All</button>
+      <button class="tag-filter" onclick="filterTag('linux', this)">Linux</button>
+      <button class="tag-filter" onclick="filterTag('crypto', this)">Homelab</button>
+    </div>
+  </div>
+
+  <!-- Article list -->
+  <main>
+    <div class="container">
+      <div class="article-count" id="articleCount"></div>
+      <div class="article-list" id="articleList">
+
+        <!-- ================================================================
+             ARTICLES — to add a new one, copy one .article-item block,
+             paste it here, and update the text + data-tags attribute.
+             Link it to a new blog-post-filename.html in the href.
+        ================================================================ -->
+
+        <a class="article-item" href="" data-tags="linux">
+          <div>
+            <div class="article-meta">
+              <span class="article-date">26 Jun 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-tag">Linux</span>
+            </div>
+            <div class="article-title">Place holder</div>
+            <p class="article-excerpt">
+              Place holder text here. This is just an
+              example for when I have something to post.
+            </p>
+          </div>
+          <span class="article-arrow">→</span>
+        </a>
+
+        <a class="article-item" href="" data-tags="crypto">
+          <div>
+            <div class="article-meta">
+              <span class="article-date">26 Jun 2026</span>
+              <span class="article-dot"></span>
+              <span class="article-tag">Homelab</span>
+            </div>
+            <div class="article-title">Place holder 2</div>
+            <p class="article-excerpt">
+              Place holder text here. This is just an
+              example for when I have something to post.
+            </p>
+          </div>
+          <span class="article-arrow">→</span>
+        </a>
+
+      </div>
+
+      <div class="no-results" id="noResults">No posts with that tag yet.</div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    // ── Tag filter ──
+    function filterTag(tag, btn) {
+      // Update active button
+      document.querySelectorAll('.tag-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.article-item');
+      let visible = 0;
+
+      items.forEach(item => {
+        const tags = item.getAttribute('data-tags') || '';
+        const show = tag === 'all' || tags.split(',').map(t => t.trim()).includes(tag);
+        item.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      document.getElementById('noResults').style.display = visible === 0 ? '' : 'none';
+      updateCount(visible);
+    }
+
+    function updateCount(n) {
+      document.getElementById('articleCount').textContent = n + ' post' + (n === 1 ? '' : 's');
+    }
+
+    // Set initial count
+    updateCount(document.querySelectorAll('.article-item').length);
+  </script>
+  <script src="/css/layout.js"></script>
+</body>
+</html>

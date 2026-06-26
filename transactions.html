@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
@@ -63,7 +63,7 @@
       line-height: 1;
     }
 
-    .stat-sub {
+        .stat-sub {
       margin-top: 0.45rem;
       font-family: var(--font-mono);
       font-size: 0.72rem;
@@ -301,7 +301,7 @@
       margin-bottom: 1rem;
     }
 
-    /* What else this money could buy */
+       /* What else this money could buy */
     .afforded-section {
       margin: 0 0 2.75rem;
       padding-top: 0.5rem;
@@ -417,11 +417,12 @@
     }
 
     @media (max-width: 600px) {
-      .stats-row {
+     .stats-row {
         grid-template-columns: 1fr;
       }
 
       .tx-hash { max-width: 180px; }
+
 
       .afforded-section {
         margin-bottom: 2.25rem;
@@ -435,36 +436,8 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <nav>
-      <a href="/" class="nav-logo">SmokeyAllen</a>
-      <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="transactions.html">Gambling Tracker</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+<div id="site-header"></div>
 
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <svg class="icon-sun" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-    </nav>
-  </header>
-
-  <!-- ===== PAGE HEADER ===== -->
   <div class="tracker-header">
     <div class="container">
       <span class="eyebrow">Daniels gambling tracker</span>
@@ -482,7 +455,7 @@
     </div>
   </div>
 
-  <!-- ===== MAIN CONTENT ===== -->
+ <!-- ===== MAIN CONTENT ===== -->
   <main>
     <div class="container">
 
@@ -575,38 +548,22 @@
     </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">SA</span>
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <p class="footer-copy">© 2026 Smokey Allen. All rights reserved.</p>
-    </div>
-  </footer>
+ <div id="site-footer"></div>
 
   <script>
-    // ── Dark mode ──
-    const toggle = document.getElementById('themeToggle');
-    const body   = document.body;
+    // ── Dark mode handled by /css/layout.js ──
+    const body = document.body;
     if (localStorage.getItem('theme') === 'dark' ||
         (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       body.classList.add('dark');
     }
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+    document.addEventListener('themeToggled', () => {
       if (chartInstance) updateChartTheme();
     });
 
     let chartInstance = null;
     let _lastDeposits = [];
-    const NZ_ADULT_MIN_WAGE = 23.95;
+        const NZ_ADULT_MIN_WAGE = 23.95;
     const BENNY_PER_WEEK = 230;
     const countFormat = new Intl.NumberFormat('en-NZ');
     const decimalFormat = new Intl.NumberFormat('en-NZ', {
@@ -695,8 +652,7 @@
       if (mins < 1440) return Math.floor(mins / 60) + 'h ago';
       return Math.floor(mins / 1440) + 'd ago';
     };
-
-    const formatShortDate = date => date.toLocaleDateString('en-NZ', {
+  const formatShortDate = date => date.toLocaleDateString('en-NZ', {
       day: 'numeric',
       month: 'short',
       year: 'numeric'
@@ -765,7 +721,7 @@
       };
     }
 
-    // ── Render stats ──
+// ── Render stats ──
     function renderStats(deposits, price, referenceDate) {
       const total = deposits.reduce((s, d) => s + d.amountLTC, 0);
       const max   = deposits.length ? Math.max(...deposits.map(d => d.amountLTC)) : 0;
@@ -1032,7 +988,7 @@
       el('txListWrap').style.display = '';
     }
 
-    // ── Load from db.json ──
+// ── Load from db.json ──
     async function load() {
       el('stateMsg').style.display   = '';
       el('stateMsg').className       = 'state-msg';
@@ -1077,5 +1033,6 @@
 
     load();
   </script>
+  <script src="/css/layout.js"></script>
 </body>
 </html>
