@@ -200,6 +200,10 @@ function gitCommitAndPush() {
     const msg = `Auto update ${new Date().toISOString()}`;
 
     execSync(`git commit -m "${msg}"`, { stdio: 'inherit' });
+    
+    // Pull latest changes before pushing to avoid conflicts
+    execSync('git pull --rebase origin main', { stdio: 'inherit' });
+    
     execSync('git push origin main', { stdio: 'inherit' });
 
     log('Git push successful');
@@ -259,3 +263,4 @@ if (ENABLE_INTERVAL) {
 
   log('Sync scheduled every hour. Running now…');
 }
+
