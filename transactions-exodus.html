@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exodus Wallet Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=DM+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <style>
+    /* ── Page-specific styles ── */
+    .tracker-header {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tracker-header .eyebrow { display: block; margin-bottom: 1rem; }
+    .tracker-header h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.75rem; }
+    .tracker-header p  { max-width: 480px; }
+
+    .addr-pill {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 1rem;
+    }
+
+    body.dark .addr-pill { background: #1a1a18; }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--color-border);
+      border: 1px solid var(--color-border);
+      margin: 2.5rem 0 0;
+    }
+
+    .stat-box {
+      background: var(--color-bg);
+      padding: 1.5rem 1.75rem;
+    }
+
+    body.dark .stat-box { background: var(--color-bg); }
+
+    .stat-box .eyebrow { display: block; margin-bottom: 0.5rem; }
+
+    .stat-value {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    .stat-value.positive { color: #2e7d47; }
+    .stat-value.negative { color: #c0392b; }
+
+    .stat-sub {
+      margin-top: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Chart area */
+    .chart-wrap {
+      position: relative;
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    body.dark .chart-wrap { background: #1a1a18; }
+    .chart-wrap canvas { max-height: 300px; }
+
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Transaction list */
+    .tx-list { display: flex; flex-direction: column; }
+
+    .tx-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.25rem;
+      align-items: center;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tx-item:first-child { border-top: 1px solid var(--color-border); }
+
+    .tx-direction {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .tx-direction.receive {
+      color: #2e7d47;
+      background: rgba(46, 125, 71, 0.12);
+    }
+
+    .tx-direction.send {
+      color: #c0392b;
+      background: rgba(192, 57, 43, 0.12);
+    }
+
+    .tx-hash {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 320px;
+      margin-bottom: 0.3rem;
+    }
+
+    .tx-hash a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .tx-hash a:hover { color: var(--color-text-primary); }
+
+    .tx-date {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .tx-amount {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .tx-amount.receive { color: #2e7d47; }
+    .tx-amount.send { color: #c0392b; }
+
+    .tx-amount .tx-nzd {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* Filter tabs */
+    .tx-filters {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tx-filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    body.dark .tx-filter-btn { background: #1a1a18; }
+
+    .tx-filter-btn.active {
+      color: var(--color-text-primary);
+      border-color: var(--color-text-primary);
+    }
+
+    /* State messages */
+    .state-msg {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--color-text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .state-msg.error { color: #c0392b; }
+
+    /* Sync badge */
+    .refresh-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 0.75rem;
+    }
+
+    .refresh-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #27ae60;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    @media (max-width: 900px) {
+      .stats-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tx-hash { max-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+  <div class="tracker-header">
+    <div class="container">
+      <span class="eyebrow">Exodus wallet</span>
+      <h1>Wallet <em>activity</em></h1>
+      <p>Tracking all sends and receives for this address. Data pulled live from the blockchain and updated hourly.</p>
+      <div>
+        <span class="addr-pill">LcULoCvNwP4eVAe3ChgVZWkHRr5t4VVGs6</span>
+      </div>
+      <div>
+        <span class="refresh-badge" id="refreshBadge" style="display:none;">
+          <span class="refresh-dot"></span>
+          <span id="lastSyncLabel">Updated recently</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="stats-row" id="statsRow" style="display:none;">
+        <div class="stat-box">
+          <span class="eyebrow">Net balance change (LTC)</span>
+          <div class="stat-value" id="statNetLTC">—</div>
+          <div class="stat-sub" id="statNetNZD"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Total received (LTC)</span>
+          <div class="stat-value" id="statReceivedLTC">—</div>
+          <div class="stat-sub" id="statReceivedNZD"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Total sent (LTC)</span>
+          <div class="stat-value" id="statSentLTC">—</div>
+          <div class="stat-sub" id="statSentNZD"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Transactions tracked</span>
+          <div class="stat-value" id="statCount">—</div>
+          <div class="stat-sub" id="statCountBreakdown"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Largest transaction</span>
+          <div class="stat-value" id="statMaxLTC">—</div>
+          <div class="stat-sub" id="statMaxNZD"></div>
+        </div>
+        <div class="stat-box">
+          <span class="eyebrow">Busiest day</span>
+          <div class="stat-value" id="statBestDay">—</div>
+          <div class="stat-sub" id="statBestDayDate"></div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-wrap" id="chartWrap" style="display:none;">
+        <div class="section-title">Sends &amp; receives over time (LTC)</div>
+        <canvas id="txChart"></canvas>
+      </div>
+
+      <!-- Tx list -->
+      <div id="txListWrap" style="display:none;">
+        <div class="section-title">Transaction history</div>
+        <div class="tx-filters">
+          <button class="tx-filter-btn active" data-filter="all">All</button>
+          <button class="tx-filter-btn" data-filter="receive">Received</button>
+          <button class="tx-filter-btn" data-filter="send">Sent</button>
+        </div>
+        <div class="tx-list" id="txList"></div>
+      </div>
+
+      <!-- State placeholder -->
+      <div class="state-msg" id="stateMsg">Loading database…</div>
+
+    </div>
+  </main>
+
+ <div id="site-footer"></div>
+
+  <script>
+    // ── Dark mode handled by /css/layout.js ──
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark');
+    }
+    document.addEventListener('themeToggled', () => {
+      if (chartInstance) updateChartTheme();
+    });
+
+    let chartInstance = null;
+    let _lastTxs = [];
+    let _lastPrice = null;
+    let _activeFilter = 'all';
+
+    const currencyFormat = new Intl.NumberFormat('en-NZ', {
+      style: 'currency',
+      currency: 'NZD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    });
+
+    const el = id => document.getElementById(id);
+
+    const timeAgo = iso => {
+      const mins = Math.floor((Date.now() - new Date(iso)) / 60000);
+      if (mins < 1)    return 'just now';
+      if (mins < 60)   return mins + 'm ago';
+      if (mins < 1440) return Math.floor(mins / 60) + 'h ago';
+      return Math.floor(mins / 1440) + 'd ago';
+    };
+
+    const formatShortDate = date => date.toLocaleDateString('en-NZ', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+
+    function getLocalDateKey(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return year + '-' + month + '-' + day;
+    }
+
+    // ── Render stats ──
+    function renderStats(txs, price) {
+      const received = txs.filter(t => t.direction === 'receive').reduce((s, t) => s + t.amountLTC, 0);
+      const sent     = txs.filter(t => t.direction === 'send').reduce((s, t) => s + t.amountLTC, 0);
+      const net      = received - sent;
+      const max      = txs.length ? Math.max(...txs.map(t => t.amountLTC)) : 0;
+
+      el('statNetLTC').textContent = (net >= 0 ? '+' : '') + net.toFixed(4) + ' LTC';
+      el('statNetLTC').className = 'stat-value ' + (net >= 0 ? 'positive' : 'negative');
+      el('statNetNZD').textContent = price ? currencyFormat.format(net * price) : '';
+
+      el('statReceivedLTC').textContent = received.toFixed(4) + ' LTC';
+      el('statReceivedNZD').textContent = price ? currencyFormat.format(received * price) : '';
+
+      el('statSentLTC').textContent = sent.toFixed(4) + ' LTC';
+      el('statSentNZD').textContent = price ? currencyFormat.format(sent * price) : '';
+
+      el('statCount').textContent = txs.length;
+      const recvCount = txs.filter(t => t.direction === 'receive').length;
+      const sentCount = txs.filter(t => t.direction === 'send').length;
+      el('statCountBreakdown').textContent = recvCount + ' received · ' + sentCount + ' sent';
+
+      el('statMaxLTC').textContent = max.toFixed(4) + ' LTC';
+      el('statMaxNZD').textContent = price ? currencyFormat.format(max * price) : '';
+
+      // Busiest day calculation (by transaction count)
+      const byDay = {};
+      txs.forEach(t => {
+        const day = getLocalDateKey(new Date(t.confirmed));
+        byDay[day] = (byDay[day] || 0) + 1;
+      });
+      const bestDay = Object.entries(byDay).sort((a, b) => b[1] - a[1])[0];
+      if (bestDay) {
+        el('statBestDay').textContent = bestDay[1] + (bestDay[1] === 1 ? ' tx' : ' txs');
+        el('statBestDayDate').textContent = formatShortDate(new Date(bestDay[0] + 'T00:00:00'));
+      } else {
+        el('statBestDay').textContent = '—';
+        el('statBestDayDate').textContent = '';
+      }
+
+      el('statsRow').style.display = '';
+    }
+
+    // ── Render chart ──
+    function renderChart(txs) {
+      const isDark    = body.classList.contains('dark');
+      const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+      const textColor = isDark ? '#8a8780' : '#6b6762';
+
+      const sorted = [...txs].sort((a, b) => new Date(a.confirmed) - new Date(b.confirmed));
+      const labels = sorted.map(t => new Date(t.confirmed).toLocaleDateString('en-NZ', { day: 'numeric', month: 'short' }));
+      const received = sorted.map(t => t.direction === 'receive' ? t.amountLTC : 0);
+      const sent     = sorted.map(t => t.direction === 'send' ? -t.amountLTC : 0);
+
+      let cum = 0;
+      const cumulative = sorted.map(t => {
+        cum += t.direction === 'receive' ? t.amountLTC : -t.amountLTC;
+        return +cum.toFixed(6);
+      });
+
+      el('chartWrap').style.display = '';
+      if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+
+      chartInstance = new Chart(el('txChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Received (LTC)',
+              data: received,
+              backgroundColor: isDark ? 'rgba(70,170,110,0.55)' : 'rgba(46,125,71,0.55)',
+              borderColor:     isDark ? 'rgba(70,170,110,0.9)'  : 'rgba(46,125,71,0.9)',
+              borderWidth: 1,
+              borderRadius: 3,
+              yAxisID: 'y',
+            },
+            {
+              label: 'Sent (LTC)',
+              data: sent,
+              backgroundColor: isDark ? 'rgba(200,90,74,0.55)' : 'rgba(192,57,43,0.55)',
+              borderColor:     isDark ? 'rgba(200,90,74,0.9)'  : 'rgba(192,57,43,0.9)',
+              borderWidth: 1,
+              borderRadius: 3,
+              yAxisID: 'y',
+            },
+            {
+              label: 'Net balance (LTC)',
+              data: cumulative,
+              type: 'line',
+              borderColor:     isDark ? '#c8854a' : '#1a1a1a',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              pointRadius: 3,
+              tension: 0.3,
+              yAxisID: 'y2',
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: textColor, font: { family: 'DM Sans', size: 12 } } },
+            tooltip: {
+              callbacks: {
+                label: ctx => ` ${ctx.dataset.label}: ${Math.abs(ctx.parsed.y).toFixed(4)} LTC`
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { color: gridColor }
+            },
+            y: {
+              position: 'left',
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { color: gridColor }
+            },
+            y2: {
+              position: 'right',
+              ticks: { color: textColor, font: { family: 'DM Mono', size: 11 } },
+              grid:  { drawOnChartArea: false }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartTheme() {
+      if (!chartInstance) return;
+      chartInstance.destroy();
+      chartInstance = null;
+      renderChart(_lastTxs);
+    }
+
+    // ── Render transaction list ──
+    function renderList(txs, price, filter) {
+      const list = el('txList');
+      list.innerHTML = '';
+
+      const filtered = filter === 'all' ? txs : txs.filter(t => t.direction === filter);
+
+      if (!filtered.length) {
+        list.innerHTML = '<div class="state-msg">No transactions found for this filter.</div>';
+        el('txListWrap').style.display = '';
+        return;
+      }
+
+      [...filtered].sort((a, b) => new Date(b.confirmed) - new Date(a.confirmed)).forEach(tx => {
+        const dt   = new Date(tx.confirmed);
+        const date = dt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'short', year: 'numeric' });
+        const time = dt.toLocaleTimeString('en-NZ', { hour: '2-digit', minute: '2-digit' });
+        const nzd  = price ? ` ≈ ${currencyFormat.format(tx.amountLTC * price)}` : '';
+        const short = tx.hash.slice(0, 16) + '…' + tx.hash.slice(-8);
+        const sign = tx.direction === 'receive' ? '+' : '−';
+        const arrow = tx.direction === 'receive' ? '↓' : '↑';
+
+        const row = document.createElement('div');
+        row.className = 'tx-item';
+        row.innerHTML = `
+          <div class="tx-direction ${tx.direction}">${arrow}</div>
+          <div>
+            <div class="tx-hash">
+              <a href="https://litecoinspace.org/tx/${tx.hash}" target="_blank" rel="noopener">
+                ${short}
+              </a>
+            </div>
+            <div class="tx-date">${date} · ${time}</div>
+          </div>
+          <div class="tx-amount ${tx.direction}">
+            ${sign}${tx.amountLTC.toFixed(4)} LTC
+            ${nzd ? `<span class="tx-nzd">${nzd}</span>` : ''}
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      el('txListWrap').style.display = '';
+    }
+
+    // ── Filter buttons ──
+    document.querySelectorAll('.tx-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tx-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        _activeFilter = btn.dataset.filter;
+        renderList(_lastTxs, _lastPrice, _activeFilter);
+      });
+    });
+
+    // ── Load from db-exodus.json ──
+    async function load() {
+      el('stateMsg').style.display   = '';
+      el('stateMsg').className       = 'state-msg';
+      el('stateMsg').textContent     = 'Loading database…';
+      el('statsRow').style.display   = 'none';
+      el('chartWrap').style.display  = 'none';
+      el('txListWrap').style.display = 'none';
+
+      try {
+        const r = await fetch('db-exodus.json?t=' + Date.now());
+        if (!r.ok) throw new Error('db-exodus.json not found (status ' + r.status + ')');
+        const db = await r.json();
+
+        const txs   = (db.transactions || []).filter(t => t.amountLTC > 0);
+        const price = db.ltcPriceNZD || null;
+        _lastTxs   = txs;
+        _lastPrice = price;
+
+        // Show last sync time in the badge
+        if (db.lastSync) {
+          el('lastSyncLabel').textContent = 'Updated ' + timeAgo(db.lastSync);
+        }
+        el('refreshBadge').style.display = '';
+        el('stateMsg').style.display     = 'none';
+
+        renderStats(txs, price);
+        if (txs.length) renderChart(txs);
+        renderList(txs, price, _activeFilter);
+
+      } catch (err) {
+        el('stateMsg').className   = 'state-msg error';
+        el('stateMsg').textContent = 'Could not load database — ' + err.message;
+      }
+    }
+
+    load();
+  </script>
+  <script src="/css/layout.js"></script>
+</body>
+</html>
+
