@@ -1,0 +1,2027 @@
+{
+  "address": "LcULoCvNwP4eVAe3ChgVZWkHRr5t4VVGs6",
+  "transactions": [
+    {
+      "hash": "2b84fc615352792e10493516018b5901d2b04ec3a6682ec1debc0cd0fb12d9af",
+      "confirmed": "2026-07-03T06:14:00.000Z",
+      "direction": "send",
+      "amountLTC": 0.44195271,
+      "receivedLTC": 0,
+      "sentLTC": 0.44195271,
+      "priceNZD": 75.56,
+      "valueNZD": 33.39
+    },
+    {
+      "hash": "eb6fd4c64efa2eee8e23e5a0a2f4c7d138fe72483bd60c50bda959c7a5745b81",
+      "confirmed": "2026-07-03T06:14:00.000Z",
+      "direction": "receive",
+      "amountLTC": 0.44195271,
+      "receivedLTC": 0.44195271,
+      "sentLTC": 0,
+      "priceNZD": 75.56,
+      "valueNZD": 33.39
+    },
+    {
+      "hash": "47f75734acf3e22f8dd970fbe17273368297decaa1ea286ec6449e85e20606e0",
+      "confirmed": "2026-07-03T05:19:51.000Z",
+      "direction": "send",
+      "amountLTC": 0.38003216,
+      "receivedLTC": 0,
+      "sentLTC": 0.38003216,
+      "priceNZD": 75.63,
+      "valueNZD": 28.74
+    },
+    {
+      "hash": "34c6d38e89c43aa123abe4ae74e4c3e675b7294a49acf2224586c04c9c81f5c1",
+      "confirmed": "2026-07-03T05:19:51.000Z",
+      "direction": "receive",
+      "amountLTC": 0.38003216,
+      "receivedLTC": 0.38003216,
+      "sentLTC": 0,
+      "priceNZD": 75.63,
+      "valueNZD": 28.74
+    },
+    {
+      "hash": "5bb8b638e0a61f5b3938a7c7c1add7dd30d8da21830b770b695ad31541eb8489",
+      "confirmed": "2026-07-02T08:55:38.000Z",
+      "direction": "send",
+      "amountLTC": 0.2499,
+      "receivedLTC": 0,
+      "sentLTC": 0.2499,
+      "priceNZD": 75.27,
+      "valueNZD": 18.81
+    },
+    {
+      "hash": "e85e8f65b1ea71ae17f55ddcee9f3feed16d7f65c967f21ebaf9d60df2c90e1c",
+      "confirmed": "2026-07-02T08:55:38.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2499,
+      "receivedLTC": 0.2499,
+      "sentLTC": 0,
+      "priceNZD": 75.27,
+      "valueNZD": 18.81
+    },
+    {
+      "hash": "552fc59d630db5c885e5ddeeb2d786f03d6061f4e908b0c909e3ee2bc8838e0f",
+      "confirmed": "2026-07-02T06:12:37.000Z",
+      "direction": "send",
+      "amountLTC": 0.50760789,
+      "receivedLTC": 0,
+      "sentLTC": 0.50760789,
+      "priceNZD": 75,
+      "valueNZD": 38.07
+    },
+    {
+      "hash": "1062fb50aa0d4d0c33d6ff0b016aab7a46ee1d6908ce025ce0a3cbbaeb0df8b8",
+      "confirmed": "2026-07-02T06:09:30.000Z",
+      "direction": "receive",
+      "amountLTC": 0.50760789,
+      "receivedLTC": 0.50760789,
+      "sentLTC": 0,
+      "priceNZD": 75,
+      "valueNZD": 38.07
+    },
+    {
+      "hash": "5069cb3738c85e33f53bcb95af4bac59abb19ac2862b7f9cca1bc0376edb2841",
+      "confirmed": "2026-07-02T03:30:03.000Z",
+      "direction": "send",
+      "amountLTC": 1.87035,
+      "receivedLTC": 0,
+      "sentLTC": 1.87035,
+      "priceNZD": 76.2,
+      "valueNZD": 142.52
+    },
+    {
+      "hash": "ea5618130b4dcef30f5f0d909b608a677242cfddd3b8e33108e5ce5eeac8e01c",
+      "confirmed": "2026-07-02T03:23:47.000Z",
+      "direction": "receive",
+      "amountLTC": 1.87035,
+      "receivedLTC": 1.87035,
+      "sentLTC": 0,
+      "priceNZD": 76.2,
+      "valueNZD": 142.52
+    },
+    {
+      "hash": "a67eaaf4d4b5d714f376e0befcab989f970fa3f868b3874858947a1bcd4e805c",
+      "confirmed": "2026-07-02T03:10:58.000Z",
+      "direction": "send",
+      "amountLTC": 0.4571373,
+      "receivedLTC": 0,
+      "sentLTC": 0.4571373,
+      "priceNZD": 76.2,
+      "valueNZD": 34.83
+    },
+    {
+      "hash": "624fa68fb95ab0567fb31a40e00364b5c06fd673e88ce287d460be9ee669909b",
+      "confirmed": "2026-07-02T03:10:58.000Z",
+      "direction": "receive",
+      "amountLTC": 0.4571373,
+      "receivedLTC": 0.4571373,
+      "sentLTC": 0,
+      "priceNZD": 76.2,
+      "valueNZD": 34.83
+    },
+    {
+      "hash": "7ce5f2c380f08609fae4be3a0fa297ec4c68e3c96bbe7119cdfdeca4a51eb3a6",
+      "confirmed": "2026-07-01T07:48:04.000Z",
+      "direction": "send",
+      "amountLTC": 6.03329998,
+      "receivedLTC": 0,
+      "sentLTC": 6.03329998,
+      "priceNZD": 74.43,
+      "valueNZD": 449.06
+    },
+    {
+      "hash": "e1bdbe8f8472fc46f72c33c01da92751633161aba6a1b07c168ba56e51a6a1b9",
+      "confirmed": "2026-07-01T07:21:33.000Z",
+      "direction": "receive",
+      "amountLTC": 6.03329998,
+      "receivedLTC": 6.03329998,
+      "sentLTC": 0,
+      "priceNZD": 74.43,
+      "valueNZD": 449.06
+    },
+    {
+      "hash": "1ca2f5cca2bb67f571b1acfb64ac72d07a7acb3decabb26c6503542e18d58ac8",
+      "confirmed": "2026-06-29T05:56:31.000Z",
+      "direction": "send",
+      "amountLTC": 0.81650892,
+      "receivedLTC": 0,
+      "sentLTC": 0.81650892,
+      "priceNZD": 75.9,
+      "valueNZD": 61.97
+    },
+    {
+      "hash": "f3617ebfb1b635248432725554055caabb3db5026697e1ac6318ad645c388fd6",
+      "confirmed": "2026-06-29T05:56:31.000Z",
+      "direction": "receive",
+      "amountLTC": 0.81650892,
+      "receivedLTC": 0.81650892,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 61.97
+    },
+    {
+      "hash": "db6b796ae9ee7c855f1c95a4c5746f7457555dc20fb758b2da490d4071c3fa32",
+      "confirmed": "2026-06-28T13:38:44.000Z",
+      "direction": "send",
+      "amountLTC": 2.33300001,
+      "receivedLTC": 0,
+      "sentLTC": 2.33300001,
+      "priceNZD": 75.9,
+      "valueNZD": 177.07
+    },
+    {
+      "hash": "8ecdcbb616d671ffd9d723ea3a1dcfde17c2f01389066733cd7ac6f9752d2f84",
+      "confirmed": "2026-06-28T13:28:51.000Z",
+      "direction": "receive",
+      "amountLTC": 2.33300001,
+      "receivedLTC": 2.33300001,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 177.07
+    },
+    {
+      "hash": "18b25170b8807928f6f8b5a8cc1debdc4fa1d77f4d829fa9a6068219f15b7081",
+      "confirmed": "2026-06-26T09:34:29.000Z",
+      "direction": "send",
+      "amountLTC": 1.44997371,
+      "receivedLTC": 0,
+      "sentLTC": 1.44997371,
+      "priceNZD": 75.9,
+      "valueNZD": 110.05
+    },
+    {
+      "hash": "aa1f7b1f553733d65e7a74d03f261f258186bb14366663c795b1eec1fbba4c31",
+      "confirmed": "2026-06-26T09:25:59.000Z",
+      "direction": "receive",
+      "amountLTC": 1.44997371,
+      "receivedLTC": 1.44997371,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 110.05
+    },
+    {
+      "hash": "1de1407cb147e060da994c7e041b7287b311dacc1eed26be23a23af06f48a4a8",
+      "confirmed": "2026-06-25T04:35:17.000Z",
+      "direction": "send",
+      "amountLTC": 0.39304859,
+      "receivedLTC": 0,
+      "sentLTC": 0.39304859,
+      "priceNZD": 75.9,
+      "valueNZD": 29.83
+    },
+    {
+      "hash": "c738db240348589a18a37a283ab7bda251b4a27099c971526e04d8b826e491b2",
+      "confirmed": "2026-06-25T04:35:17.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39304859,
+      "receivedLTC": 0.39304859,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 29.83
+    },
+    {
+      "hash": "bdc9303ab99bc1576f632cb43102ed780c5ccd13c2b1450c10dcb8f0cf74c69b",
+      "confirmed": "2026-06-25T04:11:07.000Z",
+      "direction": "send",
+      "amountLTC": 0.43950317,
+      "receivedLTC": 0,
+      "sentLTC": 0.43950317,
+      "priceNZD": 75.9,
+      "valueNZD": 33.36
+    },
+    {
+      "hash": "5e770c475f3f9325cd69dae106f0f4f5f005260bdd51b3f0fdf83c937cbfd40e",
+      "confirmed": "2026-06-25T04:11:07.000Z",
+      "direction": "receive",
+      "amountLTC": 0.43950317,
+      "receivedLTC": 0.43950317,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 33.36
+    },
+    {
+      "hash": "20be40f514ca997932c3c5cc72389414e3d951685581f1a6023377aa3960ae8e",
+      "confirmed": "2026-06-24T08:31:13.000Z",
+      "direction": "send",
+      "amountLTC": 0.47553932,
+      "receivedLTC": 0,
+      "sentLTC": 0.47553932,
+      "priceNZD": 75.9,
+      "valueNZD": 36.09
+    },
+    {
+      "hash": "ec7e0f2dc47414661a70e443480dbdb6422b9461ecbcd93737efa2623be65339",
+      "confirmed": "2026-06-24T08:24:50.000Z",
+      "direction": "receive",
+      "amountLTC": 0.47553932,
+      "receivedLTC": 0.47553932,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 36.09
+    },
+    {
+      "hash": "afaf4244569f81605b83a7f33c750c1671f666f80e7f70178d1982560a500862",
+      "confirmed": "2026-06-24T05:19:48.000Z",
+      "direction": "send",
+      "amountLTC": 0.51727304,
+      "receivedLTC": 0,
+      "sentLTC": 0.51727304,
+      "priceNZD": 75.9,
+      "valueNZD": 39.26
+    },
+    {
+      "hash": "a3823fad6109aef5bac1a67e08406ca2e3022d65c630f0bae8148f56ec48b804",
+      "confirmed": "2026-06-24T05:19:48.000Z",
+      "direction": "receive",
+      "amountLTC": 0.51727304,
+      "receivedLTC": 0.51727304,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 39.26
+    },
+    {
+      "hash": "b4dd90418964c7900e3e2ad51da4081911c01b7c7557e79bb16c5ef1d7156874",
+      "confirmed": "2026-06-24T02:18:41.000Z",
+      "direction": "send",
+      "amountLTC": 0.42504108,
+      "receivedLTC": 0,
+      "sentLTC": 0.42504108,
+      "priceNZD": 75.9,
+      "valueNZD": 32.26
+    },
+    {
+      "hash": "40f5c01b87260cd9bbe5667f425da7f1ff2fc4c01fd66fc95f7b6310ea24bf17",
+      "confirmed": "2026-06-24T02:14:20.000Z",
+      "direction": "receive",
+      "amountLTC": 0.42504108,
+      "receivedLTC": 0.42504108,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 32.26
+    },
+    {
+      "hash": "0c0bc7675ef586dc06de432e347fa649bc6aa810e0520d84253d2ffc9642471b",
+      "confirmed": "2026-06-22T08:31:47.000Z",
+      "direction": "send",
+      "amountLTC": 0.36484981,
+      "receivedLTC": 0,
+      "sentLTC": 0.36484981,
+      "priceNZD": 75.9,
+      "valueNZD": 27.69
+    },
+    {
+      "hash": "621d38167cc4b1cbcc30a80f291f8ca904b900c58328c2465c475a5c2029c24b",
+      "confirmed": "2026-06-22T08:31:47.000Z",
+      "direction": "receive",
+      "amountLTC": 0.36484981,
+      "receivedLTC": 0.36484981,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.69
+    },
+    {
+      "hash": "cdb79e9fdc95b70fdff30907e047d2c2a7ca757d4c70174fb4e4bebbf61a4ee6",
+      "confirmed": "2026-06-22T06:11:01.000Z",
+      "direction": "send",
+      "amountLTC": 0.1799,
+      "receivedLTC": 0,
+      "sentLTC": 0.1799,
+      "priceNZD": 75.9,
+      "valueNZD": 13.65
+    },
+    {
+      "hash": "2281ede1fe1060384e5fb4701cf991c30c0f2c26a4a6f887f22da51787618396",
+      "confirmed": "2026-06-22T06:11:01.000Z",
+      "direction": "receive",
+      "amountLTC": 0.1799,
+      "receivedLTC": 0.1799,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 13.65
+    },
+    {
+      "hash": "6bf1e81951c32f68785c24211ff5ecc96952771f2d369791c096ff3040e3087d",
+      "confirmed": "2026-06-22T01:42:39.000Z",
+      "direction": "send",
+      "amountLTC": 0.3636338,
+      "receivedLTC": 0,
+      "sentLTC": 0.3636338,
+      "priceNZD": 75.9,
+      "valueNZD": 27.6
+    },
+    {
+      "hash": "9b7f06d5401853f6c9ad633f4930c54ac01ae9e22e5d40d3492f2f9ac16ca304",
+      "confirmed": "2026-06-22T01:42:39.000Z",
+      "direction": "receive",
+      "amountLTC": 0.3636338,
+      "receivedLTC": 0.3636338,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.6
+    },
+    {
+      "hash": "8463b49d30e757872ab90c19fc51ad43117c697fcd786f636c0a90404f80dc1d",
+      "confirmed": "2026-06-21T05:16:03.000Z",
+      "direction": "send",
+      "amountLTC": 0.369923,
+      "receivedLTC": 0,
+      "sentLTC": 0.369923,
+      "priceNZD": 75.9,
+      "valueNZD": 28.08
+    },
+    {
+      "hash": "f9444a52895d770565f8abf7b62497d1e95938be1222b04b069dcc4f2229001e",
+      "confirmed": "2026-06-21T05:14:56.000Z",
+      "direction": "receive",
+      "amountLTC": 0.369923,
+      "receivedLTC": 0.369923,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.08
+    },
+    {
+      "hash": "53f023b3246bfff902c87b8c867675432f9052b461b2f0c44b02425aaa1e5e50",
+      "confirmed": "2026-06-20T07:12:15.000Z",
+      "direction": "send",
+      "amountLTC": 0.37218005,
+      "receivedLTC": 0,
+      "sentLTC": 0.37218005,
+      "priceNZD": 75.9,
+      "valueNZD": 28.25
+    },
+    {
+      "hash": "2432b4874fa4e43609bd2796ef6d3aea77e9a0df8f73305d4a6fc2e36cfcdafe",
+      "confirmed": "2026-06-20T07:12:15.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37218005,
+      "receivedLTC": 0.37218005,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.25
+    },
+    {
+      "hash": "c13b56dbfb99787efa0e69f9bb1810b20d64cc3af0cd839a3ec514a6af6de686",
+      "confirmed": "2026-06-18T06:06:52.000Z",
+      "direction": "send",
+      "amountLTC": 0.37499909,
+      "receivedLTC": 0,
+      "sentLTC": 0.37499909,
+      "priceNZD": 75.9,
+      "valueNZD": 28.46
+    },
+    {
+      "hash": "0b2587f2eecca5af260fa7b2a6fbc438a2b128ca09a6bf6d7700c25aec31d7ac",
+      "confirmed": "2026-06-18T06:06:52.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37499909,
+      "receivedLTC": 0.37499909,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.46
+    },
+    {
+      "hash": "0c3383ffac85bcf4b222d069131bfd7a5da65276f8b8d445dbae30a36765da98",
+      "confirmed": "2026-06-17T07:01:33.000Z",
+      "direction": "send",
+      "amountLTC": 0.4641558,
+      "receivedLTC": 0,
+      "sentLTC": 0.4641558,
+      "priceNZD": 75.9,
+      "valueNZD": 35.23
+    },
+    {
+      "hash": "1ef95b733a4ba2e94f756369162e43d945d5b941d6072c2229bd0aa7ba018e4f",
+      "confirmed": "2026-06-17T07:01:33.000Z",
+      "direction": "receive",
+      "amountLTC": 0.4641558,
+      "receivedLTC": 0.4641558,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 35.23
+    },
+    {
+      "hash": "c4760df3ef6e78aa38401b046ccf2f5beb4e3e50742c94e15028c4c85fbfdcac",
+      "confirmed": "2026-06-17T06:09:16.000Z",
+      "direction": "send",
+      "amountLTC": 0.36625706,
+      "receivedLTC": 0,
+      "sentLTC": 0.36625706,
+      "priceNZD": 75.9,
+      "valueNZD": 27.8
+    },
+    {
+      "hash": "6c394dbc6602c3a392351785c19f40018894d11d8d0e53b54d3589ef60f3d79a",
+      "confirmed": "2026-06-17T06:08:15.000Z",
+      "direction": "receive",
+      "amountLTC": 0.36625706,
+      "receivedLTC": 0.36625706,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.8
+    },
+    {
+      "hash": "b08477265051560cc3f32d6bd5a89ac17ce1c263c8854c68dc229920c65d266d",
+      "confirmed": "2026-06-17T05:43:57.000Z",
+      "direction": "send",
+      "amountLTC": 0.44064563,
+      "receivedLTC": 0,
+      "sentLTC": 0.44064563,
+      "priceNZD": 75.9,
+      "valueNZD": 33.45
+    },
+    {
+      "hash": "739fae4c937a29e473509d69e97d3eed17e7f41f552278f9cffb9ea1e5af031b",
+      "confirmed": "2026-06-17T05:40:53.000Z",
+      "direction": "receive",
+      "amountLTC": 0.44064563,
+      "receivedLTC": 0.44064563,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 33.45
+    },
+    {
+      "hash": "a3ab9a29f027e3d4d7176985a2fda6bcab659e10835884cab4733ae87c7977ff",
+      "confirmed": "2026-06-17T02:43:08.000Z",
+      "direction": "send",
+      "amountLTC": 0.44443929,
+      "receivedLTC": 0,
+      "sentLTC": 0.44443929,
+      "priceNZD": 75.9,
+      "valueNZD": 33.73
+    },
+    {
+      "hash": "67db91a27f3273e16b01325f8f2f9a5933a16badd6a47d193ebf9662e35d2f3a",
+      "confirmed": "2026-06-17T02:43:08.000Z",
+      "direction": "receive",
+      "amountLTC": 0.44443929,
+      "receivedLTC": 0.44443929,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 33.73
+    },
+    {
+      "hash": "99d3eacb609b64c47b70bb1b54cc23dc5b6ad849c6c65120d601c967d03ee063",
+      "confirmed": "2026-06-17T02:14:20.000Z",
+      "direction": "send",
+      "amountLTC": 0.48687509,
+      "receivedLTC": 0,
+      "sentLTC": 0.48687509,
+      "priceNZD": 75.9,
+      "valueNZD": 36.95
+    },
+    {
+      "hash": "2fd7b4d55b9c789dde038d29ae2be7b50deb779429bf3d5aea0bfd61a224542a",
+      "confirmed": "2026-06-17T02:08:51.000Z",
+      "direction": "receive",
+      "amountLTC": 0.48687509,
+      "receivedLTC": 0.48687509,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 36.95
+    },
+    {
+      "hash": "5d91738ce74257485e504b1645873dd5f572c590f855e5e35adc27f243b352fb",
+      "confirmed": "2026-06-16T11:28:16.000Z",
+      "direction": "send",
+      "amountLTC": 0.2299,
+      "receivedLTC": 0,
+      "sentLTC": 0.2299,
+      "priceNZD": 75.9,
+      "valueNZD": 17.45
+    },
+    {
+      "hash": "5618918b9c80a7bbded9e0a55e55e128b5d211ee528bff0c9b36bf4ec66c0cdc",
+      "confirmed": "2026-06-16T11:28:16.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2299,
+      "receivedLTC": 0.2299,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 17.45
+    },
+    {
+      "hash": "2e3639dfaca0d9bccf4bc46a3c652b92889d12a23cc98b2bd8f39450b765b25f",
+      "confirmed": "2026-06-16T10:44:18.000Z",
+      "direction": "send",
+      "amountLTC": 0.42803243,
+      "receivedLTC": 0,
+      "sentLTC": 0.42803243,
+      "priceNZD": 75.9,
+      "valueNZD": 32.49
+    },
+    {
+      "hash": "e5ec12389fc0e413453cb0f75169e13b529b328eee0bfa10208666a1cb5d9307",
+      "confirmed": "2026-06-16T10:44:18.000Z",
+      "direction": "receive",
+      "amountLTC": 0.42803243,
+      "receivedLTC": 0.42803243,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 32.49
+    },
+    {
+      "hash": "4949bceac67f63952392ab3cb777e73b835c4392a23c54b555a535375dcae704",
+      "confirmed": "2026-06-16T01:11:54.000Z",
+      "direction": "send",
+      "amountLTC": 0.40212316,
+      "receivedLTC": 0,
+      "sentLTC": 0.40212316,
+      "priceNZD": 75.9,
+      "valueNZD": 30.52
+    },
+    {
+      "hash": "eae7f449f00e89effadcc3f940f6b36e46715a8d06e6854c1d1e2a40cc0313b3",
+      "confirmed": "2026-06-16T01:06:24.000Z",
+      "direction": "receive",
+      "amountLTC": 0.40212316,
+      "receivedLTC": 0.40212316,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 30.52
+    },
+    {
+      "hash": "f1836be16d38c8e6597cdaeba051aa4b1978e6de247643a31c2c93249458bed6",
+      "confirmed": "2026-06-15T05:14:12.000Z",
+      "direction": "send",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0,
+      "sentLTC": 0.2599,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "2f94942d6f457c045b6d5f3c542251974d72593bd4adefd94ecb2d3aa974d56d",
+      "confirmed": "2026-06-15T05:14:12.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0.2599,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "1d01c1cc2a835096901cbf3ed13d628c4af94f393271f7e2123419e5259f0bde",
+      "confirmed": "2026-06-15T04:32:21.000Z",
+      "direction": "send",
+      "amountLTC": 0.39592767,
+      "receivedLTC": 0,
+      "sentLTC": 0.39592767,
+      "priceNZD": 75.9,
+      "valueNZD": 30.05
+    },
+    {
+      "hash": "498cb81d7b9f639611c39f36707d5b72b42ec1e4b220589aa122090c5c3febeb",
+      "confirmed": "2026-06-15T04:32:21.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39592767,
+      "receivedLTC": 0.39592767,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 30.05
+    },
+    {
+      "hash": "5f0bd8dcfa960275dde4c0b92b5f578b441abe663fe6f568fb9a1d7a1a9312ae",
+      "confirmed": "2026-06-15T02:30:28.000Z",
+      "direction": "send",
+      "amountLTC": 0.37002264,
+      "receivedLTC": 0,
+      "sentLTC": 0.37002264,
+      "priceNZD": 75.9,
+      "valueNZD": 28.08
+    },
+    {
+      "hash": "ae193bcd92a44bac29d03f88486cae698c288df75ee10c56df1ded088275b4a8",
+      "confirmed": "2026-06-15T02:30:28.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37002264,
+      "receivedLTC": 0.37002264,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.08
+    },
+    {
+      "hash": "96327c86a95e6575438452278f9f1e47102758509e249d1be2e5d51bdb62330f",
+      "confirmed": "2026-06-14T06:09:56.000Z",
+      "direction": "send",
+      "amountLTC": 0.40322001,
+      "receivedLTC": 0,
+      "sentLTC": 0.40322001,
+      "priceNZD": 75.9,
+      "valueNZD": 30.6
+    },
+    {
+      "hash": "b91694ffb490ba2916f2bc36bfa29ed906750a4c512d6eb734d5ccc909e9d013",
+      "confirmed": "2026-06-14T06:09:56.000Z",
+      "direction": "receive",
+      "amountLTC": 0.40322001,
+      "receivedLTC": 0.40322001,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 30.6
+    },
+    {
+      "hash": "35d501fdb1b0eccbe7fc10cd2ae71f893e131553dd3beaf01f756064cb3812e4",
+      "confirmed": "2026-06-14T04:34:26.000Z",
+      "direction": "send",
+      "amountLTC": 0.44053314,
+      "receivedLTC": 0,
+      "sentLTC": 0.44053314,
+      "priceNZD": 75.9,
+      "valueNZD": 33.44
+    },
+    {
+      "hash": "1dba16edbff077cd74583aae672c14322e262644af20fdf9bd434637454e9e25",
+      "confirmed": "2026-06-14T04:34:26.000Z",
+      "direction": "receive",
+      "amountLTC": 0.44053314,
+      "receivedLTC": 0.44053314,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 33.44
+    },
+    {
+      "hash": "3f145b0a8a95e74805ba8600d95fea683db8d4cb6e88a54497550222f646c7a1",
+      "confirmed": "2026-06-13T03:45:42.000Z",
+      "direction": "send",
+      "amountLTC": 0.469318,
+      "receivedLTC": 0,
+      "sentLTC": 0.469318,
+      "priceNZD": 75.9,
+      "valueNZD": 35.62
+    },
+    {
+      "hash": "bc1616a27bfe3664e290a9f455c13dcbd3f02172669120cbc44b5cfcb9a5847c",
+      "confirmed": "2026-06-13T03:45:42.000Z",
+      "direction": "receive",
+      "amountLTC": 0.469318,
+      "receivedLTC": 0.469318,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 35.62
+    },
+    {
+      "hash": "0c6e7d2dd10056a3e5c413854c2fc34f8fdd43e3f22317c2006e16280b23037c",
+      "confirmed": "2026-06-13T03:24:58.000Z",
+      "direction": "send",
+      "amountLTC": 0.4572618,
+      "receivedLTC": 0,
+      "sentLTC": 0.4572618,
+      "priceNZD": 75.9,
+      "valueNZD": 34.71
+    },
+    {
+      "hash": "d2485e2e7d3cf2b6418d6b625faba4706dd3c745b0628c4f35de7e94fa813a6f",
+      "confirmed": "2026-06-13T03:24:58.000Z",
+      "direction": "receive",
+      "amountLTC": 0.4572618,
+      "receivedLTC": 0.4572618,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 34.71
+    },
+    {
+      "hash": "6791139f57239a2777a1396b5224b184e75ef614d55979e464c02776e4cd55d0",
+      "confirmed": "2026-06-13T02:21:38.000Z",
+      "direction": "send",
+      "amountLTC": 0.44949665,
+      "receivedLTC": 0,
+      "sentLTC": 0.44949665,
+      "priceNZD": 75.9,
+      "valueNZD": 34.12
+    },
+    {
+      "hash": "9291e7e758c00cced1dcb20ec314f1987951fe9763dd92bf93a72548d70762a8",
+      "confirmed": "2026-06-13T02:21:38.000Z",
+      "direction": "receive",
+      "amountLTC": 0.44949665,
+      "receivedLTC": 0.44949665,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 34.12
+    },
+    {
+      "hash": "92713829c7c2efc22bdee01922d983e79cde6d434da3cec67496709835d43ca8",
+      "confirmed": "2026-06-12T09:00:32.000Z",
+      "direction": "send",
+      "amountLTC": 0.2499,
+      "receivedLTC": 0,
+      "sentLTC": 0.2499,
+      "priceNZD": 75.9,
+      "valueNZD": 18.97
+    },
+    {
+      "hash": "fd11cb9c9f302d199f6def8c0468d53879f215f667a8b0d0f34eaff0cac819cc",
+      "confirmed": "2026-06-12T09:00:32.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2499,
+      "receivedLTC": 0.2499,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 18.97
+    },
+    {
+      "hash": "cc20fff7d5fc46a8cdb1d921e2b9d3a3217688207283c0b890462a5c7a876e9d",
+      "confirmed": "2026-06-12T08:31:23.000Z",
+      "direction": "send",
+      "amountLTC": 0.39112483,
+      "receivedLTC": 0,
+      "sentLTC": 0.39112483,
+      "priceNZD": 75.9,
+      "valueNZD": 29.69
+    },
+    {
+      "hash": "323176398fa06edb26864a0592661ea9d85ab0f847e827c66290c844a8cf3e82",
+      "confirmed": "2026-06-12T08:31:23.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39112483,
+      "receivedLTC": 0.39112483,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 29.69
+    },
+    {
+      "hash": "bcc0ce25769d48c7582f3a7f5fde1082d3beb9500e27f4f0cb8907df0271d463",
+      "confirmed": "2026-06-10T07:30:37.000Z",
+      "direction": "send",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0,
+      "sentLTC": 0.2599,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "4cf20af8cca0a3859459f3e64bb4e0b4197af35b934a3b684ddcb30d23489ff8",
+      "confirmed": "2026-06-10T07:30:13.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0.2599,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "8e9739e878ea30825dd58cd0f669d5a2d2744cc7097aa0b9de8c3bddfc94f592",
+      "confirmed": "2026-06-10T07:00:01.000Z",
+      "direction": "send",
+      "amountLTC": 0.47211366,
+      "receivedLTC": 0,
+      "sentLTC": 0.47211366,
+      "priceNZD": 75.9,
+      "valueNZD": 35.83
+    },
+    {
+      "hash": "e635facf2a38b5db3138fa85eb4d1645a8f6dfb6fb7adbd21cc00c932a607a20",
+      "confirmed": "2026-06-10T06:54:52.000Z",
+      "direction": "receive",
+      "amountLTC": 0.47211366,
+      "receivedLTC": 0.47211366,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 35.83
+    },
+    {
+      "hash": "22e26e5634a87bab6132997f1a8673a9792423c380206b7dc9b9cd0782081b3a",
+      "confirmed": "2026-06-10T05:48:16.000Z",
+      "direction": "send",
+      "amountLTC": 0.45923739,
+      "receivedLTC": 0,
+      "sentLTC": 0.45923739,
+      "priceNZD": 75.9,
+      "valueNZD": 34.86
+    },
+    {
+      "hash": "88cb3e5dc2e01651cf579e9bd8a9764855014935c165e8d520aa2878bca0fcb9",
+      "confirmed": "2026-06-10T05:48:16.000Z",
+      "direction": "receive",
+      "amountLTC": 0.45923739,
+      "receivedLTC": 0.45923739,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 34.86
+    },
+    {
+      "hash": "fde1b92e8fbe2dc8d1459493fd04a33a8f3f1b5b7d5ff8e20076b3ec12358234",
+      "confirmed": "2026-06-09T11:41:12.000Z",
+      "direction": "send",
+      "amountLTC": 6.51546,
+      "receivedLTC": 0,
+      "sentLTC": 6.51546,
+      "priceNZD": 75.9,
+      "valueNZD": 494.52
+    },
+    {
+      "hash": "bedbca1972aab1a49880af6a6e5e84dd23743977f07b0c5d24fcaa44e104a887",
+      "confirmed": "2026-06-09T11:39:16.000Z",
+      "direction": "receive",
+      "amountLTC": 6.51546,
+      "receivedLTC": 6.51546,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 494.52
+    },
+    {
+      "hash": "411d100e92bb597fb1999d156966e9b3d4d500902f63e10283e6361fd7cc8291",
+      "confirmed": "2026-06-09T09:32:12.000Z",
+      "direction": "send",
+      "amountLTC": 0.45646175,
+      "receivedLTC": 0,
+      "sentLTC": 0.45646175,
+      "priceNZD": 75.9,
+      "valueNZD": 34.65
+    },
+    {
+      "hash": "7751e5dad201027c2e2552ea6031ad43ecb98b8109d14026323a4081b72063c9",
+      "confirmed": "2026-06-09T09:32:12.000Z",
+      "direction": "receive",
+      "amountLTC": 0.45646175,
+      "receivedLTC": 0.45646175,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 34.65
+    },
+    {
+      "hash": "933c09e0edb76f59127818e020cae0c66e7e16becb0b7753ca012de4e8833540",
+      "confirmed": "2026-06-09T03:43:30.000Z",
+      "direction": "send",
+      "amountLTC": 0.39387678,
+      "receivedLTC": 0,
+      "sentLTC": 0.39387678,
+      "priceNZD": 75.9,
+      "valueNZD": 29.9
+    },
+    {
+      "hash": "d139c074d62df6a8486c750ccabbf967a68fafce2701aeafb1dda99f095422cd",
+      "confirmed": "2026-06-09T03:43:30.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39387678,
+      "receivedLTC": 0.39387678,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 29.9
+    },
+    {
+      "hash": "70918375d084890b064209f4f55d44e6ba17fa12080485a7fbd2d91622872cec",
+      "confirmed": "2026-06-08T09:13:34.000Z",
+      "direction": "send",
+      "amountLTC": 0.469805,
+      "receivedLTC": 0,
+      "sentLTC": 0.469805,
+      "priceNZD": 75.9,
+      "valueNZD": 35.66
+    },
+    {
+      "hash": "a050eb9f4013cb0159da0fb635398662358d2984b5e2f9e3d497ebc0dfb8fabe",
+      "confirmed": "2026-06-08T09:01:45.000Z",
+      "direction": "receive",
+      "amountLTC": 0.469805,
+      "receivedLTC": 0.469805,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 35.66
+    },
+    {
+      "hash": "56b8e77efedc91f414654c23761639d35aa20472396d4dfd0af24798f7d41c06",
+      "confirmed": "2026-06-08T06:59:30.000Z",
+      "direction": "send",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0,
+      "sentLTC": 0.2599,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "246c98fb1d5734e9f315998a5aa7f121de0f7a7e61a6a8e0efd9cd5b713fd16c",
+      "confirmed": "2026-06-08T06:59:30.000Z",
+      "direction": "receive",
+      "amountLTC": 0.2599,
+      "receivedLTC": 0.2599,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 19.73
+    },
+    {
+      "hash": "2acc1da8d1b1ed19cdc5a6ea328075c430217c1e7ef70a85328a9ddc1b15f4d4",
+      "confirmed": "2026-06-07T09:58:51.000Z",
+      "direction": "send",
+      "amountLTC": 0.39140978,
+      "receivedLTC": 0,
+      "sentLTC": 0.39140978,
+      "priceNZD": 75.9,
+      "valueNZD": 29.71
+    },
+    {
+      "hash": "404eb125ceeed2b318661124b5113ed259602e6cf8aac54cf464b71f0770d66a",
+      "confirmed": "2026-06-07T09:58:51.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39140978,
+      "receivedLTC": 0.39140978,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 29.71
+    },
+    {
+      "hash": "b06eb3f48a0f0fe5a46538915c253b56be8217b5b8a03755aeddf8ae41a7488c",
+      "confirmed": "2026-06-07T07:40:03.000Z",
+      "direction": "send",
+      "amountLTC": 0.3956762,
+      "receivedLTC": 0,
+      "sentLTC": 0.3956762,
+      "priceNZD": 75.9,
+      "valueNZD": 30.03
+    },
+    {
+      "hash": "3353671be3ec9defbb4c7a8d6af137b5d92b47a4ff4e425c030c74a3d3878211",
+      "confirmed": "2026-06-07T07:40:03.000Z",
+      "direction": "receive",
+      "amountLTC": 0.3956762,
+      "receivedLTC": 0.3956762,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 30.03
+    },
+    {
+      "hash": "b59fa6766a53f6300f7c7590acf36b502e76a25dc669a6ef7ddf33524be9ade8",
+      "confirmed": "2026-06-07T06:59:31.000Z",
+      "direction": "send",
+      "amountLTC": 0.47314101,
+      "receivedLTC": 0,
+      "sentLTC": 0.47314101,
+      "priceNZD": 75.9,
+      "valueNZD": 35.91
+    },
+    {
+      "hash": "a84dd466c2b5a8115ddcc11a5c96ae6bb32443ef1b058eeff4c9f996a12d587a",
+      "confirmed": "2026-06-07T06:59:31.000Z",
+      "direction": "receive",
+      "amountLTC": 0.47314101,
+      "receivedLTC": 0.47314101,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 35.91
+    },
+    {
+      "hash": "46d84fec3f60befd28ff055a428aba1383d99345146347a8f7dc145399ba3b30",
+      "confirmed": "2026-06-07T04:38:43.000Z",
+      "direction": "send",
+      "amountLTC": 0.63061,
+      "receivedLTC": 0,
+      "sentLTC": 0.63061,
+      "priceNZD": 75.9,
+      "valueNZD": 47.86
+    },
+    {
+      "hash": "287604b5dd81fa5f918bee09c757ba58a0a5b705089ee954d77edd4d8de7c356",
+      "confirmed": "2026-06-07T04:38:43.000Z",
+      "direction": "receive",
+      "amountLTC": 0.63061,
+      "receivedLTC": 0.63061,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 47.86
+    },
+    {
+      "hash": "895315f6c413d77d970f80d15f0752e01162254f405d2b6dc1ff71be4e290aa4",
+      "confirmed": "2026-06-06T01:56:22.000Z",
+      "direction": "send",
+      "amountLTC": 0.229595,
+      "receivedLTC": 0,
+      "sentLTC": 0.229595,
+      "priceNZD": 75.9,
+      "valueNZD": 17.43
+    },
+    {
+      "hash": "531e52b76eaebf520a2b3ff0f3263be90bae0ca23f23c9ec20daa3272bb6beb4",
+      "confirmed": "2026-06-06T01:56:22.000Z",
+      "direction": "receive",
+      "amountLTC": 0.229595,
+      "receivedLTC": 0.229595,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 17.43
+    },
+    {
+      "hash": "ad6b89571b075bc8e1aa4187bab7f6391a0b25f02e9480a038d7b1b8c6217245",
+      "confirmed": "2026-06-06T01:42:00.000Z",
+      "direction": "send",
+      "amountLTC": 0.343526,
+      "receivedLTC": 0,
+      "sentLTC": 0.343526,
+      "priceNZD": 75.9,
+      "valueNZD": 26.07
+    },
+    {
+      "hash": "f3438402585b40c5fa4e44c1514313e0b3772fdd062b0b7beff2b44d150915b3",
+      "confirmed": "2026-06-06T01:28:24.000Z",
+      "direction": "receive",
+      "amountLTC": 0.343526,
+      "receivedLTC": 0.343526,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 26.07
+    },
+    {
+      "hash": "5b59568e814de47d3178c981bef442f624c8c92d3e7acb79765ea4e315956eb7",
+      "confirmed": "2026-06-06T01:16:03.000Z",
+      "direction": "send",
+      "amountLTC": 0.29825763,
+      "receivedLTC": 0,
+      "sentLTC": 0.29825763,
+      "priceNZD": 75.9,
+      "valueNZD": 22.64
+    },
+    {
+      "hash": "d3dd9af4f4dff5aa1a46e9cf2b0cc453fe286b1ea02c04232e847fe4ebec179c",
+      "confirmed": "2026-06-06T01:16:03.000Z",
+      "direction": "receive",
+      "amountLTC": 0.29825763,
+      "receivedLTC": 0.29825763,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 22.64
+    },
+    {
+      "hash": "8f7f4978fbd42c66d9be93d7c73fcbdbbee66b2159aa7f039cf3e2c2f1c564a5",
+      "confirmed": "2026-06-05T12:12:30.000Z",
+      "direction": "send",
+      "amountLTC": 0.22999394,
+      "receivedLTC": 0,
+      "sentLTC": 0.22999394,
+      "priceNZD": 75.9,
+      "valueNZD": 17.46
+    },
+    {
+      "hash": "fe0bcbb7d81e77703e4410e60ef7c0526e242f04a970de5924302170ba53bfbb",
+      "confirmed": "2026-06-05T12:12:30.000Z",
+      "direction": "receive",
+      "amountLTC": 0.22999394,
+      "receivedLTC": 0.22999394,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 17.46
+    },
+    {
+      "hash": "65613d59e05cc54e6b4ba7538dc1a38ffebe9409d5de66127a686b0c1b50033f",
+      "confirmed": "2026-06-05T11:04:23.000Z",
+      "direction": "send",
+      "amountLTC": 0.38148655,
+      "receivedLTC": 0,
+      "sentLTC": 0.38148655,
+      "priceNZD": 75.9,
+      "valueNZD": 28.95
+    },
+    {
+      "hash": "8861098f89ce75791b58f4719bed3d95b5a239920d33469839bf1c8e871abaaa",
+      "confirmed": "2026-06-05T11:04:23.000Z",
+      "direction": "receive",
+      "amountLTC": 0.38148655,
+      "receivedLTC": 0.38148655,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.95
+    },
+    {
+      "hash": "0685fb7b4049cdc3bc5966fdfe0d9dd10395236c0bc0159110a5de753755914e",
+      "confirmed": "2026-06-05T09:16:58.000Z",
+      "direction": "send",
+      "amountLTC": 1.80943,
+      "receivedLTC": 0,
+      "sentLTC": 1.80943,
+      "priceNZD": 75.9,
+      "valueNZD": 137.34
+    },
+    {
+      "hash": "554d4f71939ec4c190a2bd107253bb57055361696be127463cc40a1e2fef32a6",
+      "confirmed": "2026-06-05T09:16:58.000Z",
+      "direction": "receive",
+      "amountLTC": 1.80943,
+      "receivedLTC": 1.80943,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 137.34
+    },
+    {
+      "hash": "91e2f69824b1f184afed3b5b85f68b792c5905fa7e3ab5d381c9eb23249f7e23",
+      "confirmed": "2026-06-05T09:03:44.000Z",
+      "direction": "send",
+      "amountLTC": 0.686382,
+      "receivedLTC": 0,
+      "sentLTC": 0.686382,
+      "priceNZD": 75.9,
+      "valueNZD": 52.1
+    },
+    {
+      "hash": "0ccf28a03de890ebf98e299d1ccccde3a22d1315d0a24ca3dcd919dddd01e278",
+      "confirmed": "2026-06-05T09:03:44.000Z",
+      "direction": "receive",
+      "amountLTC": 0.686382,
+      "receivedLTC": 0.686382,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 52.1
+    },
+    {
+      "hash": "ed73224ba9d53a2f787dd9dc150b6f1fa31ab53127945dda5dbbf510c8d38835",
+      "confirmed": "2026-06-05T03:53:47.000Z",
+      "direction": "send",
+      "amountLTC": 0.733383,
+      "receivedLTC": 0,
+      "sentLTC": 0.733383,
+      "priceNZD": 75.9,
+      "valueNZD": 55.66
+    },
+    {
+      "hash": "292e3b9f8a3cb34438651d343725970c0bc4e5e05438535191b7168621ae1ca5",
+      "confirmed": "2026-06-05T03:51:51.000Z",
+      "direction": "receive",
+      "amountLTC": 0.733383,
+      "receivedLTC": 0.733383,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 55.66
+    },
+    {
+      "hash": "b4d27f73600bd6dfd259a2ee39daefcd2352ef911ffc23544200a86878668c12",
+      "confirmed": "2026-06-05T03:46:57.000Z",
+      "direction": "send",
+      "amountLTC": 0.55891962,
+      "receivedLTC": 0,
+      "sentLTC": 0.55891962,
+      "priceNZD": 75.9,
+      "valueNZD": 42.42
+    },
+    {
+      "hash": "6aa84cc41b439747edb276ee858eff2c6ec96f12d42da777fc29a242082954e7",
+      "confirmed": "2026-06-05T03:46:57.000Z",
+      "direction": "receive",
+      "amountLTC": 0.55891962,
+      "receivedLTC": 0.55891962,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 42.42
+    },
+    {
+      "hash": "5d1730b4e6396fc4018dc23fb6b211f11cc97823776b59b7bf018f2787b934fe",
+      "confirmed": "2026-06-04T02:42:18.000Z",
+      "direction": "send",
+      "amountLTC": 0.36961176,
+      "receivedLTC": 0,
+      "sentLTC": 0.36961176,
+      "priceNZD": 75.9,
+      "valueNZD": 28.05
+    },
+    {
+      "hash": "eda7dbab44b7a55de8253649d7b623b0d2a116a6eaf9ed79fc5ccd6983a2ae7f",
+      "confirmed": "2026-06-04T02:41:11.000Z",
+      "direction": "receive",
+      "amountLTC": 0.36961176,
+      "receivedLTC": 0.36961176,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.05
+    },
+    {
+      "hash": "29f947d5df6c2bdbd591a5302e4dd2f92e53860f07e7e0ef9a3c889659304661",
+      "confirmed": "2026-06-03T12:11:22.000Z",
+      "direction": "send",
+      "amountLTC": 0.36362171,
+      "receivedLTC": 0,
+      "sentLTC": 0.36362171,
+      "priceNZD": 75.9,
+      "valueNZD": 27.6
+    },
+    {
+      "hash": "6736f9fc23b5291e620eeb0ea6c21eced383a70afdfc643ba5b57468d20f3311",
+      "confirmed": "2026-06-03T12:11:22.000Z",
+      "direction": "receive",
+      "amountLTC": 0.36362171,
+      "receivedLTC": 0.36362171,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.6
+    },
+    {
+      "hash": "a43d97ae6be2be029349dbe2280012e7a06ea3bf9e50b493138b1b7ec3cdfb35",
+      "confirmed": "2026-06-03T10:26:29.000Z",
+      "direction": "send",
+      "amountLTC": 0.35138934,
+      "receivedLTC": 0,
+      "sentLTC": 0.35138934,
+      "priceNZD": 75.9,
+      "valueNZD": 26.67
+    },
+    {
+      "hash": "e4fbbf32de4507b2c704a70d6a2f3ca22ae39c5da8ea0d9820752e13d4d909d7",
+      "confirmed": "2026-06-03T10:26:29.000Z",
+      "direction": "receive",
+      "amountLTC": 0.35138934,
+      "receivedLTC": 0.35138934,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 26.67
+    },
+    {
+      "hash": "bdd44dcb9b83cf890f30f610df60d48f86c4b71d570201bdfe93357bfae66f29",
+      "confirmed": "2026-06-03T10:12:58.000Z",
+      "direction": "send",
+      "amountLTC": 0.5239516,
+      "receivedLTC": 0,
+      "sentLTC": 0.5239516,
+      "priceNZD": 75.9,
+      "valueNZD": 39.77
+    },
+    {
+      "hash": "9824bf7f0b83d46033c133e8aecbef4eb76fe3c07f61d9a59c182ff69b789387",
+      "confirmed": "2026-06-03T10:01:43.000Z",
+      "direction": "receive",
+      "amountLTC": 0.5239516,
+      "receivedLTC": 0.5239516,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 39.77
+    },
+    {
+      "hash": "a52f012ec8b22dd130102f032b2229514d544b53e1f1177115e32ff976bf6e98",
+      "confirmed": "2026-06-03T06:03:56.000Z",
+      "direction": "send",
+      "amountLTC": 0.41219887,
+      "receivedLTC": 0,
+      "sentLTC": 0.41219887,
+      "priceNZD": 75.9,
+      "valueNZD": 31.29
+    },
+    {
+      "hash": "55b64d0c43699156e2cb1ca942e667fb74879b49493c229d2a3e8bcbc580ce87",
+      "confirmed": "2026-06-03T06:03:56.000Z",
+      "direction": "receive",
+      "amountLTC": 0.41219887,
+      "receivedLTC": 0.41219887,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 31.29
+    },
+    {
+      "hash": "cc6eb9e1846bdb7d5e2ab538dd22b5c0e0eff4662e8f5e626777dc326a896fb0",
+      "confirmed": "2026-06-03T05:41:40.000Z",
+      "direction": "send",
+      "amountLTC": 0.38947363,
+      "receivedLTC": 0,
+      "sentLTC": 0.38947363,
+      "priceNZD": 75.9,
+      "valueNZD": 29.56
+    },
+    {
+      "hash": "3d4447ca98a4667ebd9de80b126bbfadf6d20d2c66b8aca598a3f7a236d463ad",
+      "confirmed": "2026-06-03T05:41:40.000Z",
+      "direction": "receive",
+      "amountLTC": 0.38947363,
+      "receivedLTC": 0.38947363,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 29.56
+    },
+    {
+      "hash": "7c39a3e5ad4e167429aa5a0323e6d0105cc63a55616b23b4b7f2e83ac6d64a29",
+      "confirmed": "2026-06-02T10:40:54.000Z",
+      "direction": "send",
+      "amountLTC": 0.4084444,
+      "receivedLTC": 0,
+      "sentLTC": 0.4084444,
+      "priceNZD": 75.9,
+      "valueNZD": 31
+    },
+    {
+      "hash": "d7a888253751dde3615d5139e670d60d9ae5934606684ec5f587e209a7b7a097",
+      "confirmed": "2026-06-02T10:38:39.000Z",
+      "direction": "receive",
+      "amountLTC": 0.4084444,
+      "receivedLTC": 0.4084444,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 31
+    },
+    {
+      "hash": "91db9f01eb230042f76e6e88d29e0d1e2eaa871c02c1fd77b0b786c8cfde3275",
+      "confirmed": "2026-06-02T09:54:02.000Z",
+      "direction": "send",
+      "amountLTC": 0.34487374,
+      "receivedLTC": 0,
+      "sentLTC": 0.34487374,
+      "priceNZD": 75.9,
+      "valueNZD": 26.18
+    },
+    {
+      "hash": "e7f5f1bd921d496aea839bf8f72b0ba045ac4ae675023e3ab9c308cc0ce1bd4f",
+      "confirmed": "2026-06-02T09:54:02.000Z",
+      "direction": "receive",
+      "amountLTC": 0.34487374,
+      "receivedLTC": 0.34487374,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 26.18
+    },
+    {
+      "hash": "1fa3862deb230b73ab04a4bd08fff8be5f7156bc54f42b0b2cd371d748b07c29",
+      "confirmed": "2026-06-02T02:02:52.000Z",
+      "direction": "send",
+      "amountLTC": 0.37142893,
+      "receivedLTC": 0,
+      "sentLTC": 0.37142893,
+      "priceNZD": 75.9,
+      "valueNZD": 28.19
+    },
+    {
+      "hash": "7e17be02164a818bbabdfe32d5247dc928ca78b26369a3d245a4e40e0c433aa5",
+      "confirmed": "2026-06-02T02:02:52.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37142893,
+      "receivedLTC": 0.37142893,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.19
+    },
+    {
+      "hash": "da0b3350899c90fd2290ba761410f15d432b4f3cce364b2d5aca36e89f50ce14",
+      "confirmed": "2026-06-01T04:27:12.000Z",
+      "direction": "send",
+      "amountLTC": 7.14552,
+      "receivedLTC": 0,
+      "sentLTC": 7.14552,
+      "priceNZD": 75.9,
+      "valueNZD": 542.34
+    },
+    {
+      "hash": "d1185b2ab1814de0ff24dac1738fa3d4f483145d91f8b279f6f693af96cdf138",
+      "confirmed": "2026-06-01T04:27:12.000Z",
+      "direction": "receive",
+      "amountLTC": 7.14552,
+      "receivedLTC": 7.14552,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 542.34
+    },
+    {
+      "hash": "9bfe0ed83db83931c3b1f877d644502ae82d431d8d19706eff58a95faa120e73",
+      "confirmed": "2026-06-01T03:09:21.000Z",
+      "direction": "send",
+      "amountLTC": 0.4171916,
+      "receivedLTC": 0,
+      "sentLTC": 0.4171916,
+      "priceNZD": 75.9,
+      "valueNZD": 31.66
+    },
+    {
+      "hash": "f5a12688b1f605f18975f7b419d21fa262f0fc82af5ed02a2c75a5e263c1133c",
+      "confirmed": "2026-06-01T03:09:21.000Z",
+      "direction": "receive",
+      "amountLTC": 0.4171916,
+      "receivedLTC": 0.4171916,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 31.66
+    },
+    {
+      "hash": "2c2b4f9b91741ef92ad93a909cb5e8a3248643c82b66a3f99c90a1f848ec4d7d",
+      "confirmed": "2026-05-31T08:20:47.000Z",
+      "direction": "send",
+      "amountLTC": 0.32809308,
+      "receivedLTC": 0,
+      "sentLTC": 0.32809308,
+      "priceNZD": 75.9,
+      "valueNZD": 24.9
+    },
+    {
+      "hash": "33be0f87feedffbbece61f0011d137fc133c32a35edf5996791f8c2d94a99d09",
+      "confirmed": "2026-05-31T08:20:47.000Z",
+      "direction": "receive",
+      "amountLTC": 0.32809308,
+      "receivedLTC": 0.32809308,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 24.9
+    },
+    {
+      "hash": "6a17b449d1a18c67026b1a6e36ab26be3574cc8b190de3774a0fe8494b2d604b",
+      "confirmed": "2026-05-31T03:11:40.000Z",
+      "direction": "send",
+      "amountLTC": 0.54421476,
+      "receivedLTC": 0,
+      "sentLTC": 0.54421476,
+      "priceNZD": 75.9,
+      "valueNZD": 41.31
+    },
+    {
+      "hash": "480f73c7e7c0efad76cc2d2abe83741a958799ca384c4cb4739782cb97407255",
+      "confirmed": "2026-05-31T03:05:14.000Z",
+      "direction": "receive",
+      "amountLTC": 0.54421476,
+      "receivedLTC": 0.54421476,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 41.31
+    },
+    {
+      "hash": "02a52f6baadeeae3d3ce837e242d4273ddecb63e4029e7851e42d5b9ea86dcf5",
+      "confirmed": "2026-05-31T02:49:25.000Z",
+      "direction": "send",
+      "amountLTC": 0.32729693,
+      "receivedLTC": 0,
+      "sentLTC": 0.32729693,
+      "priceNZD": 75.9,
+      "valueNZD": 24.84
+    },
+    {
+      "hash": "1596a83854cffc1d714da92f98d92616a0dc5a65b9e9068945f96b481044d12c",
+      "confirmed": "2026-05-31T02:49:25.000Z",
+      "direction": "receive",
+      "amountLTC": 0.32729693,
+      "receivedLTC": 0.32729693,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 24.84
+    },
+    {
+      "hash": "955bbe1f88e2e534711ad26529d4cd88e31fbf664c7cf058c6728a4c8a0818ce",
+      "confirmed": "2026-05-30T04:33:07.000Z",
+      "direction": "send",
+      "amountLTC": 0.37320575,
+      "receivedLTC": 0,
+      "sentLTC": 0.37320575,
+      "priceNZD": 75.9,
+      "valueNZD": 28.33
+    },
+    {
+      "hash": "162003ac3dfa3e59dbf06220fd066f83ff3eea34d79fb33af7c421395132dc9a",
+      "confirmed": "2026-05-30T04:32:23.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37320575,
+      "receivedLTC": 0.37320575,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.33
+    },
+    {
+      "hash": "b7672f43ac2851531a8e34bf63b0696a9705c8eb46a9aee819a939ac633ce8b9",
+      "confirmed": "2026-05-30T03:48:15.000Z",
+      "direction": "send",
+      "amountLTC": 0.37159109,
+      "receivedLTC": 0,
+      "sentLTC": 0.37159109,
+      "priceNZD": 75.9,
+      "valueNZD": 28.2
+    },
+    {
+      "hash": "c6ab22ee462e4dd45e414b05d1ab44e8819d61f246d12d1a158af35e629b7355",
+      "confirmed": "2026-05-30T03:45:52.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37159109,
+      "receivedLTC": 0.37159109,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.2
+    },
+    {
+      "hash": "ae8ef3ffc19710efcbe760e6924aecc6526bf28fda83f96d4a0803a2fd1029f4",
+      "confirmed": "2026-05-28T08:49:29.000Z",
+      "direction": "send",
+      "amountLTC": 5.32134,
+      "receivedLTC": 0,
+      "sentLTC": 5.32134,
+      "priceNZD": 75.9,
+      "valueNZD": 403.89
+    },
+    {
+      "hash": "f2bc4e2c9019e280f0e5591a00f3507cb6c5992825c6c913081d2f2fb015847d",
+      "confirmed": "2026-05-28T08:45:57.000Z",
+      "direction": "receive",
+      "amountLTC": 5.32134,
+      "receivedLTC": 5.32134,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 403.89
+    },
+    {
+      "hash": "7f64331696b5ef270c1106f393bd7d50a0ea7a38b1ab1b5fac3f1565778f08eb",
+      "confirmed": "2026-05-28T06:13:31.000Z",
+      "direction": "send",
+      "amountLTC": 0.35957691,
+      "receivedLTC": 0,
+      "sentLTC": 0.35957691,
+      "priceNZD": 75.9,
+      "valueNZD": 27.29
+    },
+    {
+      "hash": "b7f45a1190bc42ebb61b3c003ff130f6c3100c8efba7e7ca10a65c0bc8415e2a",
+      "confirmed": "2026-05-28T06:11:18.000Z",
+      "direction": "receive",
+      "amountLTC": 0.35957691,
+      "receivedLTC": 0.35957691,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.29
+    },
+    {
+      "hash": "82f52d5ec262dd4fb8cbd3a91e9c9806ff8a84ff7c48566704b03b0308238ad8",
+      "confirmed": "2026-05-28T05:51:22.000Z",
+      "direction": "send",
+      "amountLTC": 0.33425597,
+      "receivedLTC": 0,
+      "sentLTC": 0.33425597,
+      "priceNZD": 75.9,
+      "valueNZD": 25.37
+    },
+    {
+      "hash": "51911aae83c86eb4b00249dc78bcd001fcee45653fcd7fe3512071e00f0a8ae3",
+      "confirmed": "2026-05-28T05:51:22.000Z",
+      "direction": "receive",
+      "amountLTC": 0.33425597,
+      "receivedLTC": 0.33425597,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 25.37
+    },
+    {
+      "hash": "8a72708e98d6342ee418c686fd7f26237e8dcc09df7f94cb1d5f2135e55f5f18",
+      "confirmed": "2026-05-27T08:24:37.000Z",
+      "direction": "send",
+      "amountLTC": 0.32231894,
+      "receivedLTC": 0,
+      "sentLTC": 0.32231894,
+      "priceNZD": 75.9,
+      "valueNZD": 24.46
+    },
+    {
+      "hash": "138ed8c7bca694d3a4ca04dbc8190d3634905f9a089843fca9937ad050bccf38",
+      "confirmed": "2026-05-27T08:07:06.000Z",
+      "direction": "receive",
+      "amountLTC": 0.32231894,
+      "receivedLTC": 0.32231894,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 24.46
+    },
+    {
+      "hash": "e4ee3ae75209a4b8c50cbd597a59315b95b048a662544f6a5ef82a28ca84b1d4",
+      "confirmed": "2026-05-27T06:11:25.000Z",
+      "direction": "send",
+      "amountLTC": 0.3762545,
+      "receivedLTC": 0,
+      "sentLTC": 0.3762545,
+      "priceNZD": 75.9,
+      "valueNZD": 28.56
+    },
+    {
+      "hash": "e84b6c2720811dc2a6d81c9561c90200ca804013159e0a4fa6e3e4d7afca85f9",
+      "confirmed": "2026-05-27T06:10:26.000Z",
+      "direction": "receive",
+      "amountLTC": 0.3762545,
+      "receivedLTC": 0.3762545,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.56
+    },
+    {
+      "hash": "df2e739755cf47f8f00a126865659e028b77d3efc17b9d9755144c28eed9e189",
+      "confirmed": "2026-05-25T08:59:44.000Z",
+      "direction": "send",
+      "amountLTC": 0.31826194,
+      "receivedLTC": 0,
+      "sentLTC": 0.31826194,
+      "priceNZD": 75.9,
+      "valueNZD": 24.16
+    },
+    {
+      "hash": "7a7b33f207d9a43a4d787a34baa3f50ec04c04b7bdb958d615c288e8443abc81",
+      "confirmed": "2026-05-25T08:59:44.000Z",
+      "direction": "receive",
+      "amountLTC": 0.31826194,
+      "receivedLTC": 0.31826194,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 24.16
+    },
+    {
+      "hash": "5550d84c010a5e623b9525791c2443fe86af57a727bfc350e8a733a229bd0ae8",
+      "confirmed": "2026-05-25T05:28:17.000Z",
+      "direction": "send",
+      "amountLTC": 0.37283629,
+      "receivedLTC": 0,
+      "sentLTC": 0.37283629,
+      "priceNZD": 75.9,
+      "valueNZD": 28.3
+    },
+    {
+      "hash": "a3fb9debbc7bdf4eefebd1e9b90cbc79742b97c2d80ab0ae652cef399947e557",
+      "confirmed": "2026-05-25T05:28:17.000Z",
+      "direction": "receive",
+      "amountLTC": 0.37283629,
+      "receivedLTC": 0.37283629,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 28.3
+    },
+    {
+      "hash": "41f7d76f71b6a202df143a99654fdd46bc16e1f0f27e3437e01c6f1a749c728e",
+      "confirmed": "2026-05-24T05:46:44.000Z",
+      "direction": "send",
+      "amountLTC": 0.31518193,
+      "receivedLTC": 0,
+      "sentLTC": 0.31518193,
+      "priceNZD": 75.9,
+      "valueNZD": 23.92
+    },
+    {
+      "hash": "f9b62db35ba086fc155569a00619ddd5b09d64c87ed94b87b72c580932428227",
+      "confirmed": "2026-05-24T05:46:44.000Z",
+      "direction": "receive",
+      "amountLTC": 0.31518193,
+      "receivedLTC": 0.31518193,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.92
+    },
+    {
+      "hash": "a9add5cea80a4a6ced0087caffc73c939cbdd047a706db5c6380a01f8271fc61",
+      "confirmed": "2026-05-24T04:38:48.000Z",
+      "direction": "send",
+      "amountLTC": 0.31443293,
+      "receivedLTC": 0,
+      "sentLTC": 0.31443293,
+      "priceNZD": 75.9,
+      "valueNZD": 23.87
+    },
+    {
+      "hash": "a1341b51bf5d7936ef2d9548237b11926894e20161d9d67481376bc7f6748632",
+      "confirmed": "2026-05-24T04:37:12.000Z",
+      "direction": "receive",
+      "amountLTC": 0.31443293,
+      "receivedLTC": 0.31443293,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.87
+    },
+    {
+      "hash": "bfa4f0f6df7b3b073d2e5971f14c7c06f59534517f578c3c277ee4f0e5d10148",
+      "confirmed": "2026-05-22T06:37:00.000Z",
+      "direction": "send",
+      "amountLTC": 0.36268193,
+      "receivedLTC": 0,
+      "sentLTC": 0.36268193,
+      "priceNZD": 75.9,
+      "valueNZD": 27.53
+    },
+    {
+      "hash": "20cc7d2ec18c93bc311d391b37b531833dd5cf6b539b2d7b83c050a3f65260c6",
+      "confirmed": "2026-05-22T06:37:00.000Z",
+      "direction": "receive",
+      "amountLTC": 0.36268193,
+      "receivedLTC": 0.36268193,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 27.53
+    },
+    {
+      "hash": "b3c27ddae13157fc634d63fb9be72c344bf232f205ad09d5968e0a999c6db1c8",
+      "confirmed": "2026-05-21T07:06:40.000Z",
+      "direction": "send",
+      "amountLTC": 0.31003144,
+      "receivedLTC": 0,
+      "sentLTC": 0.31003144,
+      "priceNZD": 75.9,
+      "valueNZD": 23.53
+    },
+    {
+      "hash": "07a4c01a50dd4e68057023d8c5f8ea42dc4c5bacdf187ea60aefceddaa6a24d0",
+      "confirmed": "2026-05-21T07:06:40.000Z",
+      "direction": "receive",
+      "amountLTC": 0.31003144,
+      "receivedLTC": 0.31003144,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.53
+    },
+    {
+      "hash": "29421aa2e57d1d38f0f3a0f586572db657e5c54ae32575356a7e5875a0eb5d19",
+      "confirmed": "2026-05-20T07:42:13.000Z",
+      "direction": "send",
+      "amountLTC": 0.30914979,
+      "receivedLTC": 0,
+      "sentLTC": 0.30914979,
+      "priceNZD": 75.9,
+      "valueNZD": 23.46
+    },
+    {
+      "hash": "dea614a67758219d21c47a5d125a354b7e1cc7684c4f0e2a9626f83994cb1c19",
+      "confirmed": "2026-05-20T07:42:13.000Z",
+      "direction": "receive",
+      "amountLTC": 0.30914979,
+      "receivedLTC": 0.30914979,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.46
+    },
+    {
+      "hash": "70ae4f8d9e85ec6ad889882b9410444a9b4abc684821e1f684f893876698556c",
+      "confirmed": "2026-05-20T06:37:21.000Z",
+      "direction": "send",
+      "amountLTC": 0.30953429,
+      "receivedLTC": 0,
+      "sentLTC": 0.30953429,
+      "priceNZD": 75.9,
+      "valueNZD": 23.49
+    },
+    {
+      "hash": "26bafc35bb8f8883fda751b255b35cb7d679255b48318268eaba19167e820a56",
+      "confirmed": "2026-05-20T06:37:21.000Z",
+      "direction": "receive",
+      "amountLTC": 0.30953429,
+      "receivedLTC": 0.30953429,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.49
+    },
+    {
+      "hash": "2da2742ad556d4cb95632c3b73517f3e3154860237699c000a9d694a5d3ae275",
+      "confirmed": "2026-05-17T05:38:09.000Z",
+      "direction": "send",
+      "amountLTC": 0.29754072,
+      "receivedLTC": 0,
+      "sentLTC": 0.29754072,
+      "priceNZD": 75.9,
+      "valueNZD": 22.58
+    },
+    {
+      "hash": "12825048f7a7d1b9ad162d0106390a8ac5892da7aad040fb29f9f82c12c1f39b",
+      "confirmed": "2026-05-17T05:38:09.000Z",
+      "direction": "receive",
+      "amountLTC": 0.29754072,
+      "receivedLTC": 0.29754072,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 22.58
+    },
+    {
+      "hash": "333d9c06cc32fe3b26f0b1d7a00dcc9db75c462c0ba269884e745cb2793fb470",
+      "confirmed": "2026-05-16T04:57:19.000Z",
+      "direction": "send",
+      "amountLTC": 0.39576231,
+      "receivedLTC": 0,
+      "sentLTC": 0.39576231,
+      "priceNZD": 75.9,
+      "valueNZD": 30.04
+    },
+    {
+      "hash": "f1c93dba425d2dcf7c533e5aa73c5201412c2cdfa54d74e477b1b310f21e120a",
+      "confirmed": "2026-05-16T04:57:19.000Z",
+      "direction": "receive",
+      "amountLTC": 0.39576231,
+      "receivedLTC": 0.39576231,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 30.04
+    },
+    {
+      "hash": "82a87df3f9188afd2419be6a873255db99dacb944fa5d6c261f420b78c946487",
+      "confirmed": "2026-05-15T09:34:29.000Z",
+      "direction": "send",
+      "amountLTC": 0.28805854,
+      "receivedLTC": 0,
+      "sentLTC": 0.28805854,
+      "priceNZD": 75.9,
+      "valueNZD": 21.86
+    },
+    {
+      "hash": "02bb7b44da72463d68b45a1543005e374687f15f22287a191568898877de57a2",
+      "confirmed": "2026-05-15T09:34:29.000Z",
+      "direction": "receive",
+      "amountLTC": 0.28805854,
+      "receivedLTC": 0.28805854,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 21.86
+    },
+    {
+      "hash": "9de7b6ed4c1f98948b898fd0cfa97e8d7aea2015b3199d3f07e9170c3f6a1c2f",
+      "confirmed": "2026-05-15T05:26:48.000Z",
+      "direction": "send",
+      "amountLTC": 0.32072969,
+      "receivedLTC": 0,
+      "sentLTC": 0.32072969,
+      "priceNZD": 75.9,
+      "valueNZD": 24.34
+    },
+    {
+      "hash": "afd76e7b92e0ce1cf9a0bd8c40794e01d28507447cabf819d308568d4a63dc48",
+      "confirmed": "2026-05-15T05:26:48.000Z",
+      "direction": "receive",
+      "amountLTC": 0.32072969,
+      "receivedLTC": 0.32072969,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 24.34
+    },
+    {
+      "hash": "1f5dbe7d04f6be400a6fb26bb3bee4ca8283933b8c0e1e78bef9cfc503acb878",
+      "confirmed": "2026-05-15T04:33:00.000Z",
+      "direction": "send",
+      "amountLTC": 0.3302023,
+      "receivedLTC": 0,
+      "sentLTC": 0.3302023,
+      "priceNZD": 75.9,
+      "valueNZD": 25.06
+    },
+    {
+      "hash": "4026061e6d5841c9aaedad8367cc46605818a5a6de47e30b4aeb8003c936da2e",
+      "confirmed": "2026-05-15T04:33:00.000Z",
+      "direction": "receive",
+      "amountLTC": 0.3302023,
+      "receivedLTC": 0.3302023,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 25.06
+    },
+    {
+      "hash": "8cb7ed5031d74075c7b86af2c97612de0433983ab1e0b08a19b48978bf16e4ba",
+      "confirmed": "2026-05-14T06:54:16.000Z",
+      "direction": "send",
+      "amountLTC": 17.0619,
+      "receivedLTC": 0,
+      "sentLTC": 17.0619,
+      "priceNZD": 75.9,
+      "valueNZD": 1295
+    },
+    {
+      "hash": "89f267ea8af81f1208532b6952c19a61e641bc1bf791d6c313a4d4cd150d8594",
+      "confirmed": "2026-05-14T06:51:09.000Z",
+      "direction": "receive",
+      "amountLTC": 17.0619,
+      "receivedLTC": 17.0619,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 1295
+    },
+    {
+      "hash": "bc8cbc66d54cf0241967728bf0c1fe52c786c8cea9cdfa7ca034a810fd4b3bd0",
+      "confirmed": "2026-05-14T03:57:36.000Z",
+      "direction": "send",
+      "amountLTC": 0.30020243,
+      "receivedLTC": 0,
+      "sentLTC": 0.30020243,
+      "priceNZD": 75.9,
+      "valueNZD": 22.79
+    },
+    {
+      "hash": "05accf8672d9326a2e2e7dcece32776822b9a499409aa30285dde17514f84d99",
+      "confirmed": "2026-05-14T03:57:36.000Z",
+      "direction": "receive",
+      "amountLTC": 0.30020243,
+      "receivedLTC": 0.30020243,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 22.79
+    },
+    {
+      "hash": "8efebe0be8201bb6f289db65e30543698934a14c90e2b98d65f9d1dee77d95d7",
+      "confirmed": "2026-05-13T13:13:36.000Z",
+      "direction": "send",
+      "amountLTC": 0.29383922,
+      "receivedLTC": 0,
+      "sentLTC": 0.29383922,
+      "priceNZD": 75.9,
+      "valueNZD": 22.3
+    },
+    {
+      "hash": "0d8272b085192d2503045a27fbac7b3e558a39041edd2a2e88c67a8146e9f07b",
+      "confirmed": "2026-05-13T13:13:36.000Z",
+      "direction": "receive",
+      "amountLTC": 0.29383922,
+      "receivedLTC": 0.29383922,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 22.3
+    },
+    {
+      "hash": "9fef80453c0ad1a28aa0f061e2d1433b8ad17652db1aa776691ba9a3d5a2db50",
+      "confirmed": "2026-05-04T08:22:11.000Z",
+      "direction": "send",
+      "amountLTC": 0.30288713,
+      "receivedLTC": 0,
+      "sentLTC": 0.30288713,
+      "priceNZD": 75.9,
+      "valueNZD": 22.99
+    },
+    {
+      "hash": "7c05b47ff3cdb9568f7fc42cc9be2e4af36e2a0a18c374cc42a477e7c1620e42",
+      "confirmed": "2026-05-04T08:22:11.000Z",
+      "direction": "receive",
+      "amountLTC": 0.30288713,
+      "receivedLTC": 0.30288713,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 22.99
+    },
+    {
+      "hash": "dc912b29528771dfbbfbb8421ecd54836291b583352ef15ce97e6ffa45e13df0",
+      "confirmed": "2026-04-30T05:26:26.000Z",
+      "direction": "send",
+      "amountLTC": 0.30355889,
+      "receivedLTC": 0,
+      "sentLTC": 0.30355889,
+      "priceNZD": 75.9,
+      "valueNZD": 23.04
+    },
+    {
+      "hash": "1f4944bf231e2e995ce592671edd417c612d713c36f6927aa824e40144325ffc",
+      "confirmed": "2026-04-30T05:26:26.000Z",
+      "direction": "receive",
+      "amountLTC": 0.30355889,
+      "receivedLTC": 0.30355889,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 23.04
+    },
+    {
+      "hash": "21f7cd9957dc292fd3ef950f7b228052f2541c47af3e2bf7bf28a5023bbdbbd0",
+      "confirmed": "2026-04-29T02:31:39.000Z",
+      "direction": "send",
+      "amountLTC": 0.3438726,
+      "receivedLTC": 0,
+      "sentLTC": 0.3438726,
+      "priceNZD": 75.9,
+      "valueNZD": 26.1
+    },
+    {
+      "hash": "981415b850dabf7d159ea696a1cbfeed5abafb022f48bc935e0f1d8f96f1b397",
+      "confirmed": "2026-04-29T02:30:35.000Z",
+      "direction": "receive",
+      "amountLTC": 0.3438726,
+      "receivedLTC": 0.3438726,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 26.1
+    },
+    {
+      "hash": "1a1138821462e73274df4381fbe3422c656025018c0ac6b334e2025d5936a23d",
+      "confirmed": "2026-04-16T11:21:40.000Z",
+      "direction": "send",
+      "amountLTC": 0.20996406,
+      "receivedLTC": 0,
+      "sentLTC": 0.20996406,
+      "priceNZD": 75.9,
+      "valueNZD": 15.94
+    },
+    {
+      "hash": "8dd0fdb697f9ec69d208834468cc82ec91291f5fb5a38226d422e115696b4c53",
+      "confirmed": "2026-04-16T11:19:10.000Z",
+      "direction": "receive",
+      "amountLTC": 0.20996406,
+      "receivedLTC": 0.20996406,
+      "sentLTC": 0,
+      "priceNZD": 75.9,
+      "valueNZD": 15.94
+    }
+  ],
+  "lastSync": "2026-07-03T23:00:03.120Z",
+  "ltcPriceNZD": 78.49
+}
