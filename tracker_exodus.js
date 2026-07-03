@@ -218,9 +218,10 @@ async function fetchNewTransactions(knownHashes, cutoffDate) {
 
 function gitCommitAndPush() {
   try {
-    execSync('git add db-mate.json');
+    execSync('git add db-exodus.json');
 
-    const status = execSync('git status --porcelain db-mate.json')
+    const status = execSync('git status --porcelain db-exodus.json')
+
       .toString()
       .trim();
 
