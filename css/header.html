@@ -5,15 +5,14 @@
       <li><a href="/blog.html">Blog</a></li>
       <li><a href="/transactions.html">Gambling Tracker</a></li>
       <li><a href="/about.html">About</a></li>
-      <li class="nav-dropdown-item">
-        <details class="nav-dropdown">
-          <summary>More</summary>
-          <ul class="nav-dropdown-menu">
-            <li><a href="/dividends.html">Dividend Calculator</a></li>
-            <!-- Add more pages here, e.g.: -->
-            <!-- <li><a href="/new-page.html">New Page</a></li> -->
-          </ul>
-        </details>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle" tabindex="0">More</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="/transactions-exodus.html">Exodus Wallet</a></li>
+          <li><a href="/dividends.html">Dividend Calculator</a></li>
+          <!-- Add more pages here, e.g.: -->
+          <!-- <li><a href="/new-page.html">New Page</a></li> -->
+        </ul>
       </li>
     </ul>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -34,87 +33,3 @@
     </button>
   </nav>
 </header>
-
-<style>
-  /* ── Nav dropdown ── */
-  .nav-dropdown-item { position: relative; list-style: none; }
-
-  .nav-dropdown { position: relative; }
-
-  .nav-dropdown summary {
-    cursor: pointer;
-    list-style: none;
-    font: inherit;
-    color: inherit;
-  }
-
-  /* hide the default disclosure triangle across browsers */
-  .nav-dropdown summary::-webkit-details-marker { display: none; }
-  .nav-dropdown summary { display: inline-flex; align-items: center; gap: 0.3rem; }
-  .nav-dropdown summary::after {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: rotate(45deg) translateY(-2px);
-    transition: transform 0.15s ease;
-  }
-  .nav-dropdown[open] summary::after {
-    transform: rotate(-135deg) translateY(1px);
-  }
-
-  .nav-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    right: 0;
-    min-width: 200px;
-    margin: 0;
-    padding: 0.4rem;
-    list-style: none;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md, 8px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    z-index: 100;
-  }
-
-  .nav-dropdown-menu li { list-style: none; }
-
-  .nav-dropdown-menu a {
-    display: block;
-    padding: 0.55rem 0.75rem;
-    border-radius: var(--radius-sm, 6px);
-    font-size: 0.9rem;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown-menu a:hover {
-    background: var(--color-bg-surface);
-  }
-
-  body.dark .nav-dropdown-menu { background: #1a1a18; }
-  body.dark .nav-dropdown-menu a:hover { background: #242420; }
-
-  @media (max-width: 700px) {
-    .nav-dropdown-menu { right: auto; left: 0; }
-  }
-</style>
-
-<script>
-  // Close the dropdown when clicking outside it
-  document.addEventListener('click', (e) => {
-    document.querySelectorAll('.nav-dropdown[open]').forEach(dd => {
-      if (!dd.contains(e.target)) dd.removeAttribute('open');
-    });
-  });
-
-  // Close it after a link inside is clicked (before navigation fires visually)
-  document.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      link.closest('.nav-dropdown')?.removeAttribute('open');
-    });
-  });
-</script>
