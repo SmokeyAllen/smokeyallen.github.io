@@ -2,6 +2,46 @@
   "address": "LcULoCvNwP4eVAe3ChgVZWkHRr5t4VVGs6",
   "transactions": [
     {
+      "hash": "8c3a097ecd5c2abd0fcca8dc9cdd649d361f87996eb148a77e9947f4087e8d9c",
+      "confirmed": "2026-07-04T06:38:03.000Z",
+      "direction": "send",
+      "amountLTC": 1.58791,
+      "receivedLTC": 0,
+      "sentLTC": 1.58791,
+      "priceNZD": 77.35,
+      "valueNZD": 122.82
+    },
+    {
+      "hash": "f2d32cf12f0e1ac89ee8b902cfddb6538dba2acf62e5ecad70f7ef3f2db5c90d",
+      "confirmed": "2026-07-04T06:33:44.000Z",
+      "direction": "receive",
+      "amountLTC": 1.58791,
+      "receivedLTC": 1.58791,
+      "sentLTC": 0,
+      "priceNZD": 77.35,
+      "valueNZD": 122.82
+    },
+    {
+      "hash": "2aaeecec00a7dc520e5afbc79f42705a190486dc27ac87482dcdf5f04907a99d",
+      "confirmed": "2026-07-04T06:10:59.000Z",
+      "direction": "send",
+      "amountLTC": 0.42911018,
+      "receivedLTC": 0,
+      "sentLTC": 0.42911018,
+      "priceNZD": 77.35,
+      "valueNZD": 33.19
+    },
+    {
+      "hash": "4cc92881f3e9bfe6be1d0600daa92f347f0f3fc0484aad1262d537ef63f02269",
+      "confirmed": "2026-07-04T06:09:21.000Z",
+      "direction": "receive",
+      "amountLTC": 0.42911018,
+      "receivedLTC": 0.42911018,
+      "sentLTC": 0,
+      "priceNZD": 77.35,
+      "valueNZD": 33.19
+    },
+    {
       "hash": "2b84fc615352792e10493516018b5901d2b04ec3a6682ec1debc0cd0fb12d9af",
       "confirmed": "2026-07-03T06:14:00.000Z",
       "direction": "send",
@@ -2022,6 +2062,6 @@
       "valueNZD": 15.94
     }
   ],
-  "lastSync": "2026-07-04T06:00:07.093Z",
-  "ltcPriceNZD": 77.84
+  "lastSync": "2026-07-04T07:00:03.018Z",
+  "ltcPriceNZD": 77.35
 }
