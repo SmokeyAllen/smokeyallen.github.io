@@ -2,6 +2,13 @@
   "address": "MM1rvJGE6izAai1xBeyBF1G4UgBNDiyimg",
   "transactions": [
     {
+      "hash": "71c8cb734a600b7c0f4d8d22b96464e310c0646cdf700dbc1c48f77586d9addc",
+      "confirmed": "2026-07-06T02:11:35.000Z",
+      "amountLTC": 0.35942995,
+      "priceNZD": 79.59,
+      "valueNZD": 28.61
+    },
+    {
       "hash": "12bf4b00d48401cb4f8d2b9a02316a4b97db2e56d665ae7b9d0652e56a0328be",
       "confirmed": "2026-07-05T07:16:24.000Z",
       "amountLTC": 0.46949806,
@@ -590,6 +597,6 @@
       "valueNZD": 19.57
     }
   ],
-  "ltcPriceNZD": 80.19,
-  "lastSync": "2026-07-06T00:00:05.130Z"
+  "ltcPriceNZD": 79.59,
+  "lastSync": "2026-07-06T03:00:04.911Z"
 }
